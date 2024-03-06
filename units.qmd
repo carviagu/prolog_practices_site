@@ -1,0 +1,15 @@
+---
+title: "Sesiones"
+listing: 
+  contents: "sesiones/*/index.qmd"
+  type: default
+  fields: [image, title, subtitle, categories, author]
+  sort-ui: false
+  filter-ui: false
+page-layout: full
+title-block-banner: true
+---
+
+Estas son las sesiones de prácticas, entra en cada una para ver las explicaciones, ejercicios e instrucciones paso a paso.
+
+Recuerda que después de completar la sesión deberás de realizar el test disponible en [canvas](https://cunef.instructure.com). 

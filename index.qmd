@@ -1,0 +1,27 @@
+---
+title: "Lógica Matemática"
+subtitle: "CUNEF Universidad"
+format: 
+  html 
+---
+
+## Prácticas de Lógica Matemática
+
+Bienvenido al sitio de las prácticas de lógica matemática con PROLOG. En esta plataforma encontrarás todo el contenido de las sesiones con guías paso a paso del trabajo que debes realizar a lo largo de las mismas en cada sesión. 
+
+## Sesiones
+
+Las prácticas se dividen en 5 sesiones:
+
+  1. Introducción a PROLOG y el entorno
+  2. Sintaxis de PROLOG
+  3. Ejercicios de PROLOG I
+  4. Ejercicios de PROLOG II
+  5. Caso Práctico
+
+
+
+
+
+
+
