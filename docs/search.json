@@ -1,0 +1,198 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Lógica Matemática",
+    "section": "",
+    "text": "Bienvenido al sitio de las prácticas de lógica matemática con PROLOG. En esta plataforma encontrarás todo el contenido de las sesiones con guías paso a paso del trabajo que debes realizar a lo largo de las mismas en cada sesión."
+  },
+  {
+    "objectID": "index.html#prácticas-de-lógica-matemática",
+    "href": "index.html#prácticas-de-lógica-matemática",
+    "title": "Lógica Matemática",
+    "section": "",
+    "text": "Bienvenido al sitio de las prácticas de lógica matemática con PROLOG. En esta plataforma encontrarás todo el contenido de las sesiones con guías paso a paso del trabajo que debes realizar a lo largo de las mismas en cada sesión."
+  },
+  {
+    "objectID": "index.html#sesiones",
+    "href": "index.html#sesiones",
+    "title": "Lógica Matemática",
+    "section": "Sesiones",
+    "text": "Sesiones\nLas prácticas se dividen en 5 sesiones:\n\nIntroducción a PROLOG y el entorno\nSintaxis de PROLOG\nEjercicios de PROLOG I\nEjercicios de PROLOG II\nCaso Práctico"
+  },
+  {
+    "objectID": "units.html",
+    "href": "units.html",
+    "title": "Sesiones",
+    "section": "",
+    "text": "Estas son las sesiones de prácticas, entra en cada una para ver las explicaciones, ejercicios e instrucciones paso a paso.\nRecuerda que después de completar la sesión deberás de realizar el test disponible en canvas.\n\n\n\n\n\n\n\n\n  \n\n\n\n\nIntroducción a PROLOG\n\n\nAprende lo indispensable para trabajar con PROLOG\n\n\n\n\nPROLOG\n\n\nVisualStudio\n\n\nSistemas Expertos\n\n\nBash\n\n\n \n\n\n \n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "sesiones/01-intro/index.html",
+    "href": "sesiones/01-intro/index.html",
+    "title": "Introducción a PROLOG",
+    "section": "",
+    "text": "Introducción al entorno de trabajo que usaremos en las prácticas, bases conceptuales de trabajo y uso de PROLOG."
+  },
+  {
+    "objectID": "sesiones/01-intro/index.html#objetivos-de-la-sesión",
+    "href": "sesiones/01-intro/index.html#objetivos-de-la-sesión",
+    "title": "Introducción a PROLOG",
+    "section": "Objetivos de la sesión",
+    "text": "Objetivos de la sesión\n\nEntender el concepto de sistema experto y usos prácticos de este a nivel negocio.\nConocer el entorno de PROLOG, el software de uso y las principales instrucciones de trabajo con este lenguaje."
+  },
+  {
+    "objectID": "sesiones/01-intro/index.html#qué-es-prolog",
+    "href": "sesiones/01-intro/index.html#qué-es-prolog",
+    "title": "Introducción a PROLOG",
+    "section": "¿Qué es PROLOG?",
+    "text": "¿Qué es PROLOG?\nPROLOG es un lenguaje de programación basado en el paradigma declarativo, en concreto, lógico. Este esta basado en la lógica de primer orden. Nos va a permitir…\n\nRepresentar la definición de relaciones mediante reglas.\nExpresar cuál es la solución a un problema.\n\nEs un lenguaje adecuado para poder representar problemas que requieran…\n\nRazonamiento: sistemas expertos, bases deductivas, etc.\nManipulación simbólica y representación explícita del conocimiento\nProcesamiento del lenguaje natural\n\nLas siglas de PROLOG vienen del fránces PROgramación en LOGique,"
+  },
+  {
+    "objectID": "sesiones/01-intro/index.html#sistemas-basados-en-el-conocimiento",
+    "href": "sesiones/01-intro/index.html#sistemas-basados-en-el-conocimiento",
+    "title": "Introducción a PROLOG",
+    "section": "Sistemas Basados en el Conocimiento",
+    "text": "Sistemas Basados en el Conocimiento\nUna de sus aplicaciones es el desarrollo de Sistemas Basados en el Conocimiento, en inglés Knowledge Base System (KBS).\nUn KBS es un sistema de cómputo que engloba conocimiento organizado concerniente a algún área específica de la experiencia humana suficiente para actuar como una herramienta de consulta.\nPROLOG es un lenguaje útil para estos sistemas pues ofrece una sintaxis adecuada para poder expresar ese conocimiento mediante un conjunto de reglas y hechos. Por otro lado ofrece la sintaxis a través de la cual consultar al sistema que debe de ser capaz a partir de la base de conocimiento creada responder a las preguntas formuladas."
+  },
+  {
+    "objectID": "sesiones/01-intro/index.html#cómo-vamos-a-trabajar",
+    "href": "sesiones/01-intro/index.html#cómo-vamos-a-trabajar",
+    "title": "Introducción a PROLOG",
+    "section": "¿Cómo vamos a trabajar?",
+    "text": "¿Cómo vamos a trabajar?\nPara las prácticas necesitamos instalar PROLOG en nuestros ordenadores, haremos uso de SWI-PROLOG. Este contiene todas las herramientas básicas para poder trabajar con este lenguaje.\nAdemás podemos hacer uso de editores de código más avanzados que nos permitirán trabajar mejor."
+  },
+  {
+    "objectID": "sesiones/01-intro/index.html#swi-prolog",
+    "href": "sesiones/01-intro/index.html#swi-prolog",
+    "title": "Introducción a PROLOG",
+    "section": "SWI PROLOG",
+    "text": "SWI PROLOG\nPara estas prácticas nosotros contaremos con una distribución de PROLOG, llamada SWI PROLOG. Esta es de código abierto y nos permitirá poder trabajar e intrepretar código de PROLOG.\nSu web oficial es esta: SWI-PROLOG\n\n\n\n\n\n\nInstalación\n\n\n\nEste documento asume que estas trabajando en el entorno del laboratorio del curso, pero si necesitas instalar PROLOG y otros compnentes útiles para trabajar desde casa puedes ir a los @anexos de esta práctica."
+  },
+  {
+    "objectID": "sesiones/01-intro/index.html#entorno-de-swi-prolog",
+    "href": "sesiones/01-intro/index.html#entorno-de-swi-prolog",
+    "title": "Introducción a PROLOG",
+    "section": "Entorno de SWI PROLOG",
+    "text": "Entorno de SWI PROLOG\nUna vez instalado encontrarás distintas cosas en tu ordenador:\n\n\nSWI-Prolog: El programa por defecto de PROLOG, este abre una terminal con el compilador y herramientas cargadas. A continuación veremos de forma básica como manejarse con este.\nSWI-Prolog (console): Esto es una consola similar a CMD de windows o la consola de MacOS. No vamos a utilizarla.\n\nAbre SWI-Prolog, tendrás ante ti una consola donde puede introducir los distintos comandos.\n\nEn la consola se muestra el símbolo ?- que es el indicador de PROLOG para pedir al usuario que introduzca una instrucción."
+  },
+  {
+    "objectID": "sesiones/01-intro/index.html#comandos-en-prolog",
+    "href": "sesiones/01-intro/index.html#comandos-en-prolog",
+    "title": "Introducción a PROLOG",
+    "section": "Comandos en PROLOG",
+    "text": "Comandos en PROLOG\nComo norma general la estructura básica de los comandos para SWIPL es la siguiente\n&lt;nombre_comando&gt;.\nComo puedes observar después de cada comando u orden tendremos que escribir un punto, dando a entender al interprete que hemos terminado de escribir la orden. Esto es algo similar al ; que habrás visto en otros lenguajes de programación como JAVA, de esta mandera le explicamos a SWIPL que ahí termina nuestra instrucción.\nLo que tienes ante ti es una consola, las consolas nos permiten dar ordenes a nuestro ordenador y navegar a un bajo nivel entre los directorios y archivos, sin una interfaz visual como a la que estamos acostumbrados. En esta podemos dar instrucciones al ordenador y nos irá mostrando el output resultado de ejecutarlas, cada vez que termine de ejecutar nos volverá a mostrar el indicador para introducir una instrucción, en este caso ?-\nSi bien la consola habitual de tu ordenador la ejecutarías con otro programa distinto como el CMD o PowerShell de Windows, esta terminal emula este estilo pero teniendo ya cargado un interprete de PROLOG que permitirá que puedas cargar códigos de PROLOG y ejecutar instrucciones directamente.\nAhora aprenderemos los distintos comandos e instrucciones de navegación en una terminal de PROLOG, muchos de los comandos vienen originalmente de las terminales de Windows como PowerShell o Linux, y tienen las mismas funcionalidades.\n\nConocer mi directorio con pwd.\nEl primer comando que vamos a usar es pwd. Puedes escribirlo y presionar enter. Verás que PROLOG te devuelve una dirección, que es donde te encuentras ahora mismo y finalmente un true. Ahora mismo ese true no nos aporta nada más que indicarnos que la ejecución a terminado correctamente. Pero esta respuesta es una de las claves del lenguaje lógico con el que estamos trabajando y que explicaremos más adelante.\nTienes que tener en cuenta que si vien estas ejecutando una terminal de SWI PROLOG, estas trabajando en tu ordenador y al igual que harías con una terminal normal de tu ordenador, esta te permite navegar por tu ordenador.\nPor defecto cuando ejecutamos y abrimos PROLOG este lee desde nuestra carpeta raíz, la de nuestro usuario.\n\n\nConocer el contenido del directorio con ls.\nAhora que sabes donde estas, vamos a investigar que contiene el directorio donde nos encontramos. Para ello puedes ejecutar el comando ls.\nPor último puedes revisar el contenido del directorio donde te encuentras, simplemente con el comando ls.. Verás que la terminal te devuelve el listado de archivos o carpetas que hay.\n\nEste comando mostrará en la terminal todo el conjunto de directorios y ficheros que existen. Los directorios apareceran con una / al final del nombre, por ejemplo ejercicios/; mientras que los archivos apareceran con su extensión, por ejemplo hola.docx sería un word mientras que codigo.pl sería un archivo de código de PROLOG.\n\n\nNavegar entre directorios con cd().\nComo ves te encuentras en el directorio raíz de PROLOG, la carpeta por defecto creada por el sistema. Pero… ¿y si quiero cambiarme de sitio?.\nPara poder navegar y movernos entre carpetas de nuestro ordenador podemos usar el comando cd(&lt;dirección&gt;)., por ejemplo..\n\ncd('..') me llevará al directorio padre.\ncd('C:/Users/carviagu/Documents/pract_prolog') me llevará a la carpeta pract_prolog localizada en Documentos, pues es lo que le indico dentro de la función.\n\nTen cuidado con las direcciones, si te fijas verás que las barras / pueden estar en una orientación distinta a la de otros sistemas operativos, por ejemplo en Windows son al revés y deberás de cambiarlas cuando se lo escribas a PROLOG.\nIntenta llegar al escritorio desde el directorio raiz usado el comando cd()."
+  },
+  {
+    "objectID": "sesiones/01-intro/index.html#primeros-pasos-con-prolog",
+    "href": "sesiones/01-intro/index.html#primeros-pasos-con-prolog",
+    "title": "Introducción a PROLOG",
+    "section": "Primeros pasos con PROLOG",
+    "text": "Primeros pasos con PROLOG\nPrueba a introducir las siguientes intrucciones ahora:\n\n7 @&gt; 6.\n5 is 5.\n4 @&lt; 3.\n9 is 2+3.\n\nFijate en el punto final que ponemos en cada una para indicar a PROLOG donde termina la instrucción. ¿Qué te devuelve en cada caso?\nSi te fijas PROLOG funciona como un chat al que podemos hacer preguntas simples (númericas en este caso). A lo largo de las prácticas veremos como crear algo más complejo y poder usarlo como fuente de conocimiento.\nSi bien el uso que le vamos a dar a PROLOG será relativo a Lógica, vamos a conocer algunos componentes básicos del lenguaje que podemos usar.\n\nTipos de elementos\nEn prolog podemos distinguir los siguientes tipos de elementos principales:\n\nConstantes o Átomos, hacen referencia a objetos, propiedades o relaciones. Se escriben con minuscula.\n\natom(luis).\natom(padre).\n\nNúmeros, enteros o reales, con o sin signo.\n\nnumber(2).\nnumber(-5).\nnumber(2e10).\n\nVariables, cadenas de letras, números o incluso el símbolo _, deben de empezar por mayúscula o con _ para que PROLOG las identifique como tal.\n\nvariable(X).\nvariable(Luis).\nvariable(_var).\n\nEstructuras, terminos compuestos por otros terminos: nombre_estructura(term1, term2, …, termN), a los terminos se les llaman argumentos y al nombre de la estructura predicado.\n\n\n\nUnificación\nLa unificación es el proceso mediante el cual PROLOG evalua las operaciones lógicas. Ya lo has visto funcionar antes, cuando le damos una instrucción evalua la comparación y devuelve true o false según corresponda. Viene definida por el operador =.\nAlgunos ejemplos:\nX = 3.\n6 = 6.\nX = X.\nX = 1 + 2.\nFijate en que ha pasado en la última instrucción, ¿que ha sido asignado a X?\n\nPROLOG no ha realizado la operación y ha asignado directamente la estructura 1 + 2 a la variable X.\n\nPara solucionar esto, si queremos que se evalue la operación aritmética podemos usar el unificador is que evalua primera las operaciones y después compara.\nX is 1 + 2.\nFijate como funciona distinto aquí…\n5 = 3 + 2.\n5 is 3 + 2.\nEn el primer caso es falso mientras que en el segundo es verdad. ¿Por qué?\n\nEn el primer caso comparamos un número con una estructura 3 + 2.\nEn el segundo comparamos un número con el número resultado de operar aritméticamente la operación 3 + 2\n\n\n\nOperadores comparativos\nPara comparar elementos tenemos diversos operadores, los más habituales igual y distinto. Pero tenemos que tener en cuenta que dependiendo de si queremos una evaluación aritmética antes el operador cambia…\n\nOperadores con evaluación aritmética\n\n\n\nOperador\nSignificado\n\n\n\n\nis\nunificación directa\n\n\n=:=\nigualdad\n\n\n=\\=\ndesigualdad\n\n\n&gt;/&lt;\nmayor / menor\n\n\n&gt;=/=&lt;\nmayor o igual / menor o igual\n\n\n\n\n\nOperadores sin evaluación aritmética\n\n\n\nOperador\nSignificado\n\n\n\n\n=\nunificación directa\n\n\n==\nigualdad\n\n\n\\==\ndesigualdad\n\n\n@&gt; / @&lt;\nmayor / menor\n\n\n@&gt;= / @=&lt;\nmayor o igual / menor o igual\n\n\n\n\n\n\n\n\n\nComparando sin evaluación\n\n\n\nEn este tipo de comparativas al no realizarse la evaluación es necesario que los terminos sean exactamente iguales. Mira el siguiente ejemplo…\nA = 5.\nB = 5.\nA == B.\nA == A.\n\n\n\n\n\nListas\nFinalmente podemos trabajar con listas…"
+  },
+  {
+    "objectID": "sesiones/01-intro/index.html#finalizando-prolog",
+    "href": "sesiones/01-intro/index.html#finalizando-prolog",
+    "title": "Introducción a PROLOG",
+    "section": "Finalizando PROLOG",
+    "text": "Finalizando PROLOG\nFinalmente, puedes cerrar la terminal y salir del programa mediante el comando halt.\nEste comando te permitirá salir de la terminal de forma correcta."
+  },
+  {
+    "objectID": "sesiones/01-intro/index.html#escribiendo-código-de-prolog",
+    "href": "sesiones/01-intro/index.html#escribiendo-código-de-prolog",
+    "title": "Introducción a PROLOG",
+    "section": "Escribiendo código de PROLOG",
+    "text": "Escribiendo código de PROLOG\nPara trabajar con PROLOG necesitaremos un editor de texto, como has podido ver desde la consola podemos darle pequeñas instrucciones, sin embargo para tareas más complejas donde se requiera un conjunto de hechos necesitaremos desarrollar programas más extensos.\nLos archivos de PROLOG poseen una extensión .pl al final. Puedes editarlos perfectamente con un bloc de notas, NotePad++ o similar."
+  },
+  {
+    "objectID": "sesiones/01-intro/index.html#anexos",
+    "href": "sesiones/01-intro/index.html#anexos",
+    "title": "Introducción a PROLOG",
+    "section": "Anexos",
+    "text": "Anexos\n\nInstalando SWI PROLOG\nAunque en la laboratorio puedes encontrar SWI PROLOG instalado para trabajar, puedes y es recomendable instalarte la versión de SWI PROLOG en tu ordenador para trabajar desde casa y poder prácticar.\nAccede a la página oficial de SWI-PROLOG y en descarga la versión adecuada para tu ordenador según tu sistema operativo.\nDurante la instalación sigue las instrucciones, es muy recomendable permitir que instale el programa en el PATH (add swipl to the system PATH), de esta forma podremos usarlo desde cualquier terminal y facilitar las tareas.\nTambién existe una versión online, que si bien no es perfecta puede servirte para practicar y realizar ejercicios de forma complementaria. La puedes encontrar aquí.\n\n\nInstalando Visual Studio Code (opcional)\nUna propuesta para las prácticas será utilizar Visual Studio Code, este entorno es totalmente customizable permitiendo trabajar con múltiples lenguajes de programación e incorporando diversas extensiones que permiten adaptarlo a la tarea de programación que deseemos. Puedes descargarlo e instalarlo en tu ordenador aquí.\nUna vez instalado veremos que configuraciones adicionales necesitamos para poder trabajar con PROLOG. Una vez abierto ve a la tienda de extensiones, donde deberás de buscar PROLOG e instalarlo. Esto permitirá que Visual Studio pueda leer y ayudarte a escribir mejor código de PROLOG, también coloreará el código para mejor visualización.\n\nUna de las ventajas de Visual Studio es que podemos trabajar con SWI-PROLOG sin necesidad de abrir la terminal externa del programa. Visual Studio nos permite abrir terminales en el propio entorno y trabajar desde ahí. Para ello debes de ir Terminal &gt; New Terminal en las opciones superiores de Visual Studio Code. Se te abrirá una terminal en la parte inferior del entorno. Esta terminal no es la misma que la de PROLOG, sino la terminal del sistema (CMD, PowerShell, o el Shell)\nPara acceder a PROLOG, si todo ha sido instalando correctamente, basta con escribir swipl y dar a enter. Ahora se activará dentro de la terminal PROLOG y verás algo similar a la terminal externa. Ahora ya puedes trabajar con prolog.\n\nDe esta forma podrás a la vez que editar un programa de PROLOG ejecutarlo y ver sus resultados en la misma ventana."
+  },
+  {
+    "objectID": "sesiones/01-intro/Sesion01_PROLOG.html",
+    "href": "sesiones/01-intro/Sesion01_PROLOG.html",
+    "title": "Introducción a PROLOG",
+    "section": "",
+    "text": "Introducción al entorno de trabajo que usaremos en las prácticas, bases conceptuales de trabajo y uso de PROLOG."
+  },
+  {
+    "objectID": "sesiones/01-intro/Sesion01_PROLOG.html#objetivos-de-la-sesión",
+    "href": "sesiones/01-intro/Sesion01_PROLOG.html#objetivos-de-la-sesión",
+    "title": "Introducción a PROLOG",
+    "section": "Objetivos de la sesión",
+    "text": "Objetivos de la sesión\n\nEntender el concepto de sistema experto y usos prácticos de este a nivel negocio.\nConocer el entorno de PROLOG, el software de uso y las principales instrucciones de trabajo con este lenguaje."
+  },
+  {
+    "objectID": "sesiones/01-intro/Sesion01_PROLOG.html#qué-es-prolog",
+    "href": "sesiones/01-intro/Sesion01_PROLOG.html#qué-es-prolog",
+    "title": "Introducción a PROLOG",
+    "section": "¿Qué es PROLOG?",
+    "text": "¿Qué es PROLOG?\nPROLOG es un lenguaje de programación basado en el paradigma declarativo, en concreto, lógico. Este esta basado en la lógica de primer orden. Nos va a permitir…\n\nRepresentar la definición de relaciones mediante reglas.\nExpresar cuál es la solución a un problema.\n\nEs un lenguaje adecuado para poder representar problemas que requieran…\n\nRazonamiento: sistemas expertos, bases deductivas, etc.\nManipulación simbólica y representación explícita del conocimiento\nProcesamiento del lenguaje natural\n\nLas siglas de PROLOG vienen del fránces PROgramación en LOGique,"
+  },
+  {
+    "objectID": "sesiones/01-intro/Sesion01_PROLOG.html#sistemas-basados-en-el-conocimiento",
+    "href": "sesiones/01-intro/Sesion01_PROLOG.html#sistemas-basados-en-el-conocimiento",
+    "title": "Introducción a PROLOG",
+    "section": "Sistemas Basados en el Conocimiento",
+    "text": "Sistemas Basados en el Conocimiento\nUna de sus aplicaciones es el desarrollo de Sistemas Basados en el Conocimiento, en inglés Knowledge Base System (KBS).\nUn KBS es un sistema de cómputo que engloba conocimiento organizado concerniente a algún área específica de la experiencia humana suficiente para actuar como una herramienta de consulta.\nPROLOG es un lenguaje útil para estos sistemas pues ofrece una sintaxis adecuada para poder expresar ese conocimiento mediante un conjunto de reglas y hechos. Por otro lado ofrece la sintaxis a través de la cual consultar al sistema que debe de ser capaz a partir de la base de conocimiento creada responder a las preguntas formuladas."
+  },
+  {
+    "objectID": "sesiones/01-intro/Sesion01_PROLOG.html#cómo-vamos-a-trabajar",
+    "href": "sesiones/01-intro/Sesion01_PROLOG.html#cómo-vamos-a-trabajar",
+    "title": "Introducción a PROLOG",
+    "section": "¿Cómo vamos a trabajar?",
+    "text": "¿Cómo vamos a trabajar?\nPara las prácticas necesitamos instalar PROLOG en nuestros ordenadores, haremos uso de SWI-PROLOG. Este contiene todas las herramientas básicas para poder trabajar con este lenguaje.\nAdemás podemos hacer uso de editores de código más avanzados que nos permitirán trabajar mejor."
+  },
+  {
+    "objectID": "sesiones/01-intro/Sesion01_PROLOG.html#swi-prolog",
+    "href": "sesiones/01-intro/Sesion01_PROLOG.html#swi-prolog",
+    "title": "Introducción a PROLOG",
+    "section": "SWI PROLOG",
+    "text": "SWI PROLOG\nPara estas prácticas nosotros contaremos con una distribución de PROLOG, llamada SWI PROLOG. Esta es de código abierto y nos permitirá poder trabajar e intrepretar código de PROLOG.\nSu web oficial es esta: SWI-PROLOG"
+  },
+  {
+    "objectID": "sesiones/01-intro/Sesion01_PROLOG.html#entorno-de-swi-prolog",
+    "href": "sesiones/01-intro/Sesion01_PROLOG.html#entorno-de-swi-prolog",
+    "title": "Introducción a PROLOG",
+    "section": "Entorno de SWI PROLOG",
+    "text": "Entorno de SWI PROLOG\nUna vez instalado encontrarás distintas cosas en tu ordenador:\n\n\nSWI-Prolog: El programa por defecto de PROLOG, este abre una terminal con el compilador y herramientas cargadas. A continuación veremos de forma básica como manejarse con este.\nSWI-Prolog (console): Esto es una consola similar a CMD de windows o la consola de MacOS. No vamos a utilizarla.\n\nAbre SWI-Prolog, tendrás ante ti una consola donde puede introducir los distintos comandos.\n\nEn la consola se muestra el símbolo ?- que es el indicador de PROLOG para pedir al usuario que introduzca una instrucción."
+  },
+  {
+    "objectID": "sesiones/01-intro/Sesion01_PROLOG.html#comandos-en-prolog",
+    "href": "sesiones/01-intro/Sesion01_PROLOG.html#comandos-en-prolog",
+    "title": "Introducción a PROLOG",
+    "section": "Comandos en PROLOG",
+    "text": "Comandos en PROLOG\nComo norma general la estructura básica de los comandos para SWIPL es la siguiente\n&lt;nombre_comando&gt;.\nComo puedes observar después de cada comando u orden tendremos que escribir un punto, dando a entender al interprete que hemos terminado de escribir la orden. Esto es algo similar al ; que habrás visto en otros lenguajes de programación como JAVA, de esta mandera le explicamos a SWIPL que ahí termina nuestra instrucción.\nLo que tienes ante ti es una consola, las consolas nos permiten dar ordenes a nuestro ordenador y navegar a un bajo nivel entre los directorios y archivos, sin una interfaz visual como a la que estamos acostumbrados. En esta podemos dar instrucciones al ordenador y nos irá mostrando el output resultado de ejecutarlas, cada vez que termine de ejecutar nos volverá a mostrar el indicador para introducir una instrucción, en este caso ?-\nSi bien la consola habitual de tu ordenador la ejecutarías con otro programa distinto como el CMD o PowerShell de Windows, esta terminal emula este estilo pero teniendo ya cargado un interprete de PROLOG que permitirá que puedas cargar códigos de PROLOG y ejecutar instrucciones directamente.\nAhora aprenderemos los distintos comandos e instrucciones de navegación en una terminal de PROLOG, muchos de los comandos vienen originalmente de las terminales de Windows como PowerShell o Linux, y tienen las mismas funcionalidades.\n\nConocer mi directorio con pwd.\nEl primer comando que vamos a usar es pwd. Puedes escribirlo y presionar enter. Verás que PROLOG te devuelve una dirección, que es donde te encuentras ahora mismo y finalmente un true. Ahora mismo ese true no nos aporta nada más que indicarnos que la ejecución a terminado correctamente. Pero esta respuesta es una de las claves del lenguaje lógico con el que estamos trabajando y que explicaremos más adelante.\nTienes que tener en cuenta que si vien estas ejecutando una terminal de SWI PROLOG, estas trabajando en tu ordenador y al igual que harías con una terminal normal de tu ordenador, esta te permite navegar por tu ordenador.\nPor defecto cuando ejecutamos y abrimos PROLOG este lee desde nuestra carpeta raíz, la de nuestro usuario.\n\n\nConocer el contenido del directorio con ls.\nAhora que sabes donde estas, vamos a investigar que contiene el directorio donde nos encontramos. Para ello puedes ejecutar el comando ls.\nPor último puedes revisar el contenido del directorio donde te encuentras, simplemente con el comando ls.. Verás que la terminal te devuelve el listado de archivos o carpetas que hay.\n\nEste comando mostrará en la terminal todo el conjunto de directorios y ficheros que existen. Los directorios apareceran con una / al final del nombre, por ejemplo ejercicios/; mientras que los archivos apareceran con su extensión, por ejemplo hola.docx sería un word mientras que codigo.pl sería un archivo de código de PROLOG.\n\n\nNavegar entre directorios con cd().\nComo ves te encuentras en el directorio raíz de PROLOG, la carpeta por defecto creada por el sistema. Pero… ¿y si quiero cambiarme de sitio?.\nPara poder navegar y movernos entre carpetas de nuestro ordenador podemos usar el comando cd(&lt;dirección&gt;)., por ejemplo..\n\ncd('..') me llevará al directorio padre.\ncd('C:/Users/carviagu/Documents/pract_prolog') me llevará a la carpeta pract_prolog localizada en Documentos, pues es lo que le indico dentro de la función.\n\nTen cuidado con las direcciones, si te fijas verás que las barras / pueden estar en una orientación distinta a la de otros sistemas operativos, por ejemplo en Windows son al revés y deberás de cambiarlas cuando se lo escribas a PROLOG.\nIntenta llegar al escritorio desde el directorio raiz usado el comando cd()."
+  },
+  {
+    "objectID": "sesiones/01-intro/Sesion01_PROLOG.html#primeras-preguntas-a-prolog",
+    "href": "sesiones/01-intro/Sesion01_PROLOG.html#primeras-preguntas-a-prolog",
+    "title": "Introducción a PROLOG",
+    "section": "Primeras preguntas a PROLOG",
+    "text": "Primeras preguntas a PROLOG\nPrueba a introducir las siguientes intrucciones ahora:\n\n7&gt;6.\n5 is 5.\n4&lt;3.\n9 is 2+3.\n\nFijate en el punto final que ponemos en cada una para indicar a PROLOG donde termina la instrucción. ¿Qué te devuelve en cada caso?\nSi te fijas PROLOG funciona como un chat al que podemos hacer preguntas simples (númericas en este caso). A lo largo de las prácticas veremos como crear algo más complejo y poder usarlo como fuente de conocimiento."
+  },
+  {
+    "objectID": "sesiones/01-intro/Sesion01_PROLOG.html#finalizando-prolog",
+    "href": "sesiones/01-intro/Sesion01_PROLOG.html#finalizando-prolog",
+    "title": "Introducción a PROLOG",
+    "section": "Finalizando PROLOG",
+    "text": "Finalizando PROLOG\nFinalmente, puedes cerrar la terminal y salir del programa mediante el comando halt.\nEste comando te permitirá salir de la terminal de forma correcta."
+  },
+  {
+    "objectID": "sesiones/01-intro/Sesion01_PROLOG.html#escribiendo-código-de-prolog",
+    "href": "sesiones/01-intro/Sesion01_PROLOG.html#escribiendo-código-de-prolog",
+    "title": "Introducción a PROLOG",
+    "section": "Escribiendo código de PROLOG",
+    "text": "Escribiendo código de PROLOG\nPara trabajar con PROLOG necesitaremos un editor de texto, como has podido ver desde la consola podemos darle pequeñas instrucciones, sin embargo para tareas más complejas donde se requiera un conjunto de hechos necesitaremos desarrollar programas más extensos.\nLos archivos de PROLOG poseen una extensión .pl al final. Puedes editarlos perfectamente con un bloc de notas, NotePad++ o similar."
+  },
+  {
+    "objectID": "sesiones/01-intro/Sesion01_PROLOG.html#anexos",
+    "href": "sesiones/01-intro/Sesion01_PROLOG.html#anexos",
+    "title": "Introducción a PROLOG",
+    "section": "Anexos",
+    "text": "Anexos\n\nInstalando SWI PROLOG\nAunque en la laboratorio puedes encontrar SWI PROLOG instalado para trabajar, puedes y es recomendable instalarte la versión de SWI PROLOG en tu ordenador para trabajar desde casa y poder prácticar.\nAccede a la página oficial de SWI-PROLOG y en descarga la versión adecuada para tu ordenador según tu sistema operativo.\nDurante la instalación sigue las instrucciones, es muy recomendable permitir que instale el programa en el PATH (add swipl to the system PATH), de esta forma podremos usarlo desde cualquier terminal y facilitar las tareas.\nTambién existe una versión online, que si bien no es perfecta puede servirte para practicar y realizar ejercicios de forma complementaria. La puedes encontrar aquí.\n\n\nInstalando Visual Studio Code (opcional)\nUna propuesta para las prácticas será utilizar Visual Studio Code, este entorno es totalmente customizable permitiendo trabajar con múltiples lenguajes de programación e incorporando diversas extensiones que permiten adaptarlo a la tarea de programación que deseemos. Puedes descargarlo e instalarlo en tu ordenador aquí.\nUna vez instalado veremos que configuraciones adicionales necesitamos para poder trabajar con PROLOG. Una vez abierto ve a la tienda de extensiones, donde deberás de buscar PROLOG e instalarlo. Esto permitirá que Visual Studio pueda leer y ayudarte a escribir mejor código de PROLOG, también coloreará el código para mejor visualización.\n\nUna de las ventajas de Visual Studio es que podemos trabajar con SWI-PROLOG sin necesidad de abrir la terminal externa del programa. Visual Studio nos permite abrir terminales en el propio entorno y trabajar desde ahí. Para ello debes de ir Terminal &gt; New Terminal en las opciones superiores de Visual Studio Code. Se te abrirá una terminal en la parte inferior del entorno. Esta terminal no es la misma que la de PROLOG, sino la terminal del sistema (CMD, PowerShell, o el Shell)\nPara acceder a PROLOG, si todo ha sido instalando correctamente, basta con escribir swipl y dar a enter. Ahora se activará dentro de la terminal PROLOG y verás algo similar a la terminal externa. Ahora ya puedes trabajar con prolog.\n\nDe esta forma podrás a la vez que editar un programa de PROLOG ejecutarlo y ver sus resultados en la misma ventana."
+  }
+]

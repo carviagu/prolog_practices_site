@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.353">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Lógica Matemática - Introducción a PROLOG</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../units.html" rel="" target="">
+ <span class="menu-text">Sesiones</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#objetivos-de-la-sesión" id="toc-objetivos-de-la-sesión" class="nav-link active" data-scroll-target="#objetivos-de-la-sesión">Objetivos de la sesión</a></li>
+  <li><a href="#qué-es-prolog" id="toc-qué-es-prolog" class="nav-link" data-scroll-target="#qué-es-prolog">¿Qué es PROLOG?</a></li>
+  <li><a href="#sistemas-basados-en-el-conocimiento" id="toc-sistemas-basados-en-el-conocimiento" class="nav-link" data-scroll-target="#sistemas-basados-en-el-conocimiento">Sistemas Basados en el Conocimiento</a></li>
+  <li><a href="#cómo-vamos-a-trabajar" id="toc-cómo-vamos-a-trabajar" class="nav-link" data-scroll-target="#cómo-vamos-a-trabajar">¿Cómo vamos a trabajar?</a></li>
+  <li><a href="#swi-prolog" id="toc-swi-prolog" class="nav-link" data-scroll-target="#swi-prolog">SWI PROLOG</a></li>
+  <li><a href="#entorno-de-swi-prolog" id="toc-entorno-de-swi-prolog" class="nav-link" data-scroll-target="#entorno-de-swi-prolog">Entorno de SWI PROLOG</a></li>
+  <li><a href="#comandos-en-prolog" id="toc-comandos-en-prolog" class="nav-link" data-scroll-target="#comandos-en-prolog">Comandos en PROLOG</a>
+  <ul class="collapse">
+  <li><a href="#conocer-mi-directorio-con-pwd." id="toc-conocer-mi-directorio-con-pwd." class="nav-link" data-scroll-target="#conocer-mi-directorio-con-pwd.">Conocer mi directorio con <code>pwd.</code></a></li>
+  <li><a href="#conocer-el-contenido-del-directorio-con-ls." id="toc-conocer-el-contenido-del-directorio-con-ls." class="nav-link" data-scroll-target="#conocer-el-contenido-del-directorio-con-ls.">Conocer el contenido del directorio con <code>ls.</code></a></li>
+  <li><a href="#navegar-entre-directorios-con-cd." id="toc-navegar-entre-directorios-con-cd." class="nav-link" data-scroll-target="#navegar-entre-directorios-con-cd.">Navegar entre directorios con <code>cd().</code></a></li>
+  </ul></li>
+  <li><a href="#primeras-preguntas-a-prolog" id="toc-primeras-preguntas-a-prolog" class="nav-link" data-scroll-target="#primeras-preguntas-a-prolog">Primeras preguntas a PROLOG</a></li>
+  <li><a href="#finalizando-prolog" id="toc-finalizando-prolog" class="nav-link" data-scroll-target="#finalizando-prolog">Finalizando PROLOG</a></li>
+  <li><a href="#escribiendo-código-de-prolog" id="toc-escribiendo-código-de-prolog" class="nav-link" data-scroll-target="#escribiendo-código-de-prolog">Escribiendo código de PROLOG</a></li>
+  <li><a href="#anexos" id="toc-anexos" class="nav-link" data-scroll-target="#anexos">Anexos</a>
+  <ul class="collapse">
+  <li><a href="#instalando-swi-prolog" id="toc-instalando-swi-prolog" class="nav-link" data-scroll-target="#instalando-swi-prolog">Instalando SWI PROLOG</a></li>
+  <li><a href="#instalando-visual-studio-code-opcional" id="toc-instalando-visual-studio-code-opcional" class="nav-link" data-scroll-target="#instalando-visual-studio-code-opcional">Instalando Visual Studio Code (opcional)</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Introducción a PROLOG</h1>
+<p class="subtitle lead">Aprende lo indispensable para trabajar con PROLOG</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>Introducción al entorno de trabajo que usaremos en las prácticas, bases conceptuales de trabajo y uso de PROLOG.</p>
+<section id="objetivos-de-la-sesión" class="level2">
+<h2 class="anchored" data-anchor-id="objetivos-de-la-sesión">Objetivos de la sesión</h2>
+<ul>
+<li>Entender el concepto de sistema experto y usos prácticos de este a nivel negocio.</li>
+<li>Conocer el entorno de PROLOG, el software de uso y las principales instrucciones de trabajo con este lenguaje.</li>
+</ul>
+</section>
+<section id="qué-es-prolog" class="level2">
+<h2 class="anchored" data-anchor-id="qué-es-prolog">¿Qué es PROLOG?</h2>
+<p>PROLOG es un lenguaje de programación basado en el paradigma declarativo, en concreto, lógico. Este esta basado en la lógica de primer orden. Nos va a permitir…</p>
+<ol type="1">
+<li>Representar la definición de relaciones mediante reglas.</li>
+<li>Expresar cuál es la solución a un problema.</li>
+</ol>
+<p>Es un lenguaje adecuado para poder representar problemas que requieran…</p>
+<ul>
+<li>Razonamiento: sistemas expertos, bases deductivas, etc.</li>
+<li>Manipulación simbólica y representación explícita del conocimiento</li>
+<li>Procesamiento del lenguaje natural</li>
+</ul>
+<p>Las siglas de PROLOG vienen del fránces <em><strong>PRO</strong>gramación en <strong>LOG</strong>ique</em>,</p>
+</section>
+<section id="sistemas-basados-en-el-conocimiento" class="level2">
+<h2 class="anchored" data-anchor-id="sistemas-basados-en-el-conocimiento">Sistemas Basados en el Conocimiento</h2>
+<p>Una de sus aplicaciones es el desarrollo de Sistemas Basados en el Conocimiento, en inglés Knowledge Base System (KBS).</p>
+<p>Un KBS es un sistema de cómputo que engloba conocimiento organizado concerniente a algún área específica de la experiencia humana suficiente para actuar como una herramienta de consulta.</p>
+<p>PROLOG es un lenguaje útil para estos sistemas pues ofrece una sintaxis adecuada para poder expresar ese conocimiento mediante un conjunto de reglas y hechos. Por otro lado ofrece la sintaxis a través de la cual consultar al sistema que debe de ser capaz a partir de la base de conocimiento creada responder a las preguntas formuladas.</p>
+<p><img src="kbs_schema.png" class="img-fluid"></p>
+</section>
+<section id="cómo-vamos-a-trabajar" class="level2">
+<h2 class="anchored" data-anchor-id="cómo-vamos-a-trabajar">¿Cómo vamos a trabajar?</h2>
+<p>Para las prácticas necesitamos instalar PROLOG en nuestros ordenadores, haremos uso de <a href="https://www.swi-prolog.org/Download.html">SWI-PROLOG</a>. Este contiene todas las herramientas básicas para poder trabajar con este lenguaje.</p>
+<p>Además podemos hacer uso de editores de código más avanzados que nos permitirán trabajar mejor.</p>
+</section>
+<section id="swi-prolog" class="level2">
+<h2 class="anchored" data-anchor-id="swi-prolog">SWI PROLOG</h2>
+<p>Para estas prácticas nosotros contaremos con una distribución de PROLOG, llamada SWI PROLOG. Esta es de código abierto y nos permitirá poder trabajar e intrepretar código de PROLOG.</p>
+<p>Su web oficial es esta: <a href="https://www.swi-prolog.org">SWI-PROLOG</a></p>
+</section>
+<section id="entorno-de-swi-prolog" class="level2">
+<h2 class="anchored" data-anchor-id="entorno-de-swi-prolog">Entorno de SWI PROLOG</h2>
+<p>Una vez instalado encontrarás distintas cosas en tu ordenador:</p>
+<p><img src="swi_apps.png" class="img-fluid"></p>
+<ul>
+<li><strong>SWI-Prolog</strong>: El programa por defecto de PROLOG, este abre una terminal con el compilador y herramientas cargadas. A continuación veremos de forma básica como manejarse con este.</li>
+<li><strong>SWI-Prolog (console)</strong>: Esto es una consola similar a CMD de windows o la consola de MacOS. No vamos a utilizarla.</li>
+</ul>
+<p>Abre <strong>SWI-Prolog</strong>, tendrás ante ti una consola donde puede introducir los distintos comandos.</p>
+<p><img src="prolog_console_02.png" class="img-fluid"></p>
+<p>En la consola se muestra el símbolo <code>?-</code> que es el indicador de PROLOG para pedir al usuario que introduzca una instrucción.</p>
+</section>
+<section id="comandos-en-prolog" class="level2">
+<h2 class="anchored" data-anchor-id="comandos-en-prolog">Comandos en PROLOG</h2>
+<p>Como norma general la estructura básica de los comandos para SWIPL es la siguiente</p>
+<pre><code>&lt;nombre_comando&gt;.</code></pre>
+<p>Como puedes observar después de cada comando u orden tendremos que escribir un punto, dando a entender al interprete que hemos terminado de escribir la orden. Esto es algo similar al <code>;</code> que habrás visto en otros lenguajes de programación como JAVA, de esta mandera le explicamos a SWIPL que ahí termina nuestra instrucción.</p>
+<p>Lo que tienes ante ti es una consola, las consolas nos permiten dar ordenes a nuestro ordenador y navegar a un bajo nivel entre los directorios y archivos, sin una interfaz visual como a la que estamos acostumbrados. En esta podemos dar instrucciones al ordenador y nos irá mostrando el output resultado de ejecutarlas, cada vez que termine de ejecutar nos volverá a mostrar el indicador para introducir una instrucción, en este caso <code>?-</code></p>
+<p>Si bien la consola habitual de tu ordenador la ejecutarías con otro programa distinto como el CMD o PowerShell de Windows, esta terminal emula este estilo pero teniendo ya cargado un interprete de PROLOG que permitirá que puedas cargar códigos de PROLOG y ejecutar instrucciones directamente.</p>
+<p>Ahora aprenderemos los distintos comandos e instrucciones de navegación en una terminal de PROLOG, muchos de los comandos vienen originalmente de las terminales de Windows como PowerShell o Linux, y tienen las mismas funcionalidades.</p>
+<section id="conocer-mi-directorio-con-pwd." class="level3">
+<h3 class="anchored" data-anchor-id="conocer-mi-directorio-con-pwd.">Conocer mi directorio con <code>pwd.</code></h3>
+<p>El primer comando que vamos a usar es <code>pwd.</code> Puedes escribirlo y presionar enter. Verás que PROLOG te devuelve una dirección, que es donde te encuentras ahora mismo y finalmente un <code>true</code>. Ahora mismo ese <code>true</code> no nos aporta nada más que indicarnos que la ejecución a terminado correctamente. Pero esta respuesta es una de las claves del lenguaje lógico con el que estamos trabajando y que explicaremos más adelante.</p>
+<p>Tienes que tener en cuenta que si vien estas ejecutando una terminal de SWI PROLOG, estas trabajando en tu ordenador y al igual que harías con una terminal normal de tu ordenador, esta te permite navegar por tu ordenador.</p>
+<p>Por defecto cuando ejecutamos y abrimos PROLOG este lee desde nuestra carpeta raíz, la de nuestro usuario.</p>
+</section>
+<section id="conocer-el-contenido-del-directorio-con-ls." class="level3">
+<h3 class="anchored" data-anchor-id="conocer-el-contenido-del-directorio-con-ls.">Conocer el contenido del directorio con <code>ls.</code></h3>
+<p>Ahora que sabes donde estas, vamos a investigar que contiene el directorio donde nos encontramos. Para ello puedes ejecutar el comando <code>ls.</code></p>
+<p>Por último puedes revisar el contenido del directorio donde te encuentras, simplemente con el comando <code>ls.</code>. Verás que la terminal te devuelve el listado de archivos o carpetas que hay.</p>
+<p><img src="prolog_console_03.png" class="img-fluid"></p>
+<p>Este comando mostrará en la terminal todo el conjunto de directorios y ficheros que existen. Los directorios apareceran con una <code>/</code> al final del nombre, por ejemplo <code>ejercicios/</code>; mientras que los archivos apareceran con su extensión, por ejemplo <code>hola.docx</code> sería un word mientras que <code>codigo.pl</code> sería un archivo de código de PROLOG.</p>
+</section>
+<section id="navegar-entre-directorios-con-cd." class="level3">
+<h3 class="anchored" data-anchor-id="navegar-entre-directorios-con-cd.">Navegar entre directorios con <code>cd().</code></h3>
+<p>Como ves te encuentras en el directorio raíz de PROLOG, la carpeta por defecto creada por el sistema. Pero… ¿y si quiero cambiarme de sitio?.</p>
+<p>Para poder navegar y movernos entre carpetas de nuestro ordenador podemos usar el comando <code>cd(&lt;dirección&gt;).</code>, por ejemplo..</p>
+<ul>
+<li><code>cd('..')</code> me llevará al directorio padre.</li>
+<li><code>cd('C:/Users/carviagu/Documents/pract_prolog')</code> me llevará a la carpeta <code>pract_prolog</code> localizada en Documentos, pues es lo que le indico dentro de la función.</li>
+</ul>
+<p>Ten cuidado con las direcciones, si te fijas verás que las barras <code>/</code> pueden estar en una orientación distinta a la de otros sistemas operativos, por ejemplo en Windows son al revés y deberás de cambiarlas cuando se lo escribas a PROLOG.</p>
+<p>Intenta llegar al escritorio desde el directorio raiz usado el comando <code>cd().</code></p>
+</section>
+</section>
+<section id="primeras-preguntas-a-prolog" class="level2">
+<h2 class="anchored" data-anchor-id="primeras-preguntas-a-prolog">Primeras preguntas a PROLOG</h2>
+<p>Prueba a introducir las siguientes intrucciones ahora:</p>
+<ul>
+<li>7&gt;6.</li>
+<li>5 is 5.</li>
+<li>4&lt;3.</li>
+<li>9 is 2+3.</li>
+</ul>
+<p>Fijate en el punto final que ponemos en cada una para indicar a PROLOG donde termina la instrucción. ¿Qué te devuelve en cada caso?</p>
+<p>Si te fijas PROLOG funciona como un chat al que podemos hacer preguntas simples (númericas en este caso). A lo largo de las prácticas veremos como crear algo más complejo y poder usarlo como fuente de conocimiento.</p>
+</section>
+<section id="finalizando-prolog" class="level2">
+<h2 class="anchored" data-anchor-id="finalizando-prolog">Finalizando PROLOG</h2>
+<p>Finalmente, puedes cerrar la terminal y salir del programa mediante el comando <code>halt.</code></p>
+<p>Este comando te permitirá salir de la terminal de forma correcta.</p>
+</section>
+<section id="escribiendo-código-de-prolog" class="level2">
+<h2 class="anchored" data-anchor-id="escribiendo-código-de-prolog">Escribiendo código de PROLOG</h2>
+<p>Para trabajar con PROLOG necesitaremos un editor de texto, como has podido ver desde la consola podemos darle pequeñas instrucciones, sin embargo para tareas más complejas donde se requiera un conjunto de hechos necesitaremos desarrollar programas más extensos.</p>
+<p>Los archivos de PROLOG poseen una extensión <code>.pl</code> al final. Puedes editarlos perfectamente con un bloc de notas, NotePad++ o similar.</p>
+</section>
+<section id="anexos" class="level2">
+<h2 class="anchored" data-anchor-id="anexos">Anexos</h2>
+<section id="instalando-swi-prolog" class="level3">
+<h3 class="anchored" data-anchor-id="instalando-swi-prolog">Instalando SWI PROLOG</h3>
+<p>Aunque en la laboratorio puedes encontrar SWI PROLOG instalado para trabajar, puedes y es recomendable instalarte la versión de SWI PROLOG en tu ordenador para trabajar desde casa y poder prácticar.</p>
+<p>Accede a la página oficial de <a href="https://www.swi-prolog.org/Download.html">SWI-PROLOG</a> y en descarga la versión adecuada para tu ordenador según tu sistema operativo.</p>
+<p>Durante la instalación sigue las instrucciones, es muy recomendable permitir que instale el programa en el PATH (<strong>add swipl to the system PATH</strong>), de esta forma podremos usarlo desde cualquier terminal y facilitar las tareas.</p>
+<p>También existe una versión online, que si bien no es perfecta puede servirte para practicar y realizar ejercicios de forma complementaria. La puedes encontrar <a href="https://swish.swi-prolog.org/p/Tutorial%20de%20prolog.swinb">aquí</a>.</p>
+</section>
+<section id="instalando-visual-studio-code-opcional" class="level3">
+<h3 class="anchored" data-anchor-id="instalando-visual-studio-code-opcional">Instalando Visual Studio Code (opcional)</h3>
+<p>Una propuesta para las prácticas será utilizar Visual Studio Code, este entorno es totalmente customizable permitiendo trabajar con múltiples lenguajes de programación e incorporando diversas extensiones que permiten adaptarlo a la tarea de programación que deseemos. Puedes descargarlo e instalarlo en tu ordenador <a href="https://code.visualstudio.com/">aquí</a>.</p>
+<p>Una vez instalado veremos que configuraciones adicionales necesitamos para poder trabajar con PROLOG. Una vez abierto ve a la tienda de extensiones, donde deberás de buscar PROLOG e instalarlo. Esto permitirá que Visual Studio pueda leer y ayudarte a escribir mejor código de PROLOG, también coloreará el código para mejor visualización.</p>
+<p><img src="prolog_ext.png" class="img-fluid"></p>
+<p>Una de las ventajas de Visual Studio es que podemos trabajar con SWI-PROLOG sin necesidad de abrir la terminal externa del programa. Visual Studio nos permite abrir terminales en el propio entorno y trabajar desde ahí. Para ello debes de ir <code>Terminal &gt; New Terminal</code> en las opciones superiores de Visual Studio Code. Se te abrirá una terminal en la parte inferior del entorno. Esta terminal no es la misma que la de PROLOG, sino la terminal del sistema (CMD, PowerShell, o el Shell)</p>
+<p>Para acceder a PROLOG, si todo ha sido instalando correctamente, basta con escribir <code>swipl</code> y dar a enter. Ahora se activará dentro de la terminal PROLOG y verás algo similar a la terminal externa. Ahora ya puedes trabajar con prolog.</p>
+<p><img src="visual_terminal.png" class="img-fluid"></p>
+<p>De esta forma podrás a la vez que editar un programa de PROLOG ejecutarlo y ver sus resultados en la misma ventana.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">2024 Carviagu. Powered with <a href="https://quarto.org/">Quarto</a> and <a href="https://pages.github.com/">GitHub</a></div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right"><a href="https://cunef.edu"><img src="resources/images/logo2.png" class="img-fluid" alt="CUNEF" width="65"></a></div>
+  </div>
+</footer>
+
+
+
+</body></html>
