@@ -236,7 +236,15 @@ A == A.
 
 ### Listas
 
-Finalmente podemos trabajar con listas...
+Finalmente podemos trabajar con listas. Estas se representan por `[]`. Por ejemplo `[a, 1, 2.0]`. Puedes tener distintos tipos de elementos en las listas. 
+
+Podemos virificar si dos listas son iguales con `[1, 2, a] == [1,2,a].`
+
+Podemos comprobar si una lista tiene un elemento con `member(4.0, [c, 3, 4.0]).`
+
+Podemos ver el tamaño de una lista con `length([3,0.0,x], A)`. Fijate que tenemos que escribir la lista y la variable donde guardamos el resultado, en este caso A. 
+
+Podemos unir dos listas con `append([h,o], [l,a], B).`, en este caso ponemos la primera lista, la segunda y el resultado se guarda en la variable B. Prueba a escribir estas versiones de la instrucción: `append([h,o], B, [h,o,l,a]).` o `append(A, B, [h,o,l,a]).` ¿Qué esta pasando? ¿Qué devuelve PROLOG y por qué?
 
 ## Finalizando PROLOG
 
