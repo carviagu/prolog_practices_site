@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.353">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Lógica Matemática - Sintaxis de PROLOG: Hechos y Reglas</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../units.html" rel="" target="">
+ <span class="menu-text">Sesiones</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#objetivos-de-la-sesión" id="toc-objetivos-de-la-sesión" class="nav-link active" data-scroll-target="#objetivos-de-la-sesión">Objetivos de la sesión</a></li>
+  <li><a href="#razonando-con-prolog" id="toc-razonando-con-prolog" class="nav-link" data-scroll-target="#razonando-con-prolog">Razonando con PROLOG</a></li>
+  <li><a href="#bases-de-conocimiento" id="toc-bases-de-conocimiento" class="nav-link" data-scroll-target="#bases-de-conocimiento">Bases de Conocimiento</a></li>
+  <li><a href="#desarrollo-de-bases-de-conocimiento-friends" id="toc-desarrollo-de-bases-de-conocimiento-friends" class="nav-link" data-scroll-target="#desarrollo-de-bases-de-conocimiento-friends">Desarrollo de Bases de Conocimiento: Friends</a>
+  <ul class="collapse">
+  <li><a href="#creando-mi-primera-base-de-conocimiento" id="toc-creando-mi-primera-base-de-conocimiento" class="nav-link" data-scroll-target="#creando-mi-primera-base-de-conocimiento">Creando mi primera base de conocimiento</a></li>
+  <li><a href="#cargando-el-programa-en-prolog" id="toc-cargando-el-programa-en-prolog" class="nav-link" data-scroll-target="#cargando-el-programa-en-prolog">Cargando el programa en PROLOG</a></li>
+  <li><a href="#preguntando-a-prolog" id="toc-preguntando-a-prolog" class="nav-link" data-scroll-target="#preguntando-a-prolog">Preguntando a PROLOG</a></li>
+  </ul></li>
+  <li><a href="#trazas-y-depuración-en-prolog" id="toc-trazas-y-depuración-en-prolog" class="nav-link" data-scroll-target="#trazas-y-depuración-en-prolog">Trazas y depuración en PROLOG</a></li>
+  <li><a href="#ejercicio-práctico" id="toc-ejercicio-práctico" class="nav-link" data-scroll-target="#ejercicio-práctico">Ejercicio Práctico</a></li>
+  <li><a href="#anexos" id="toc-anexos" class="nav-link" data-scroll-target="#anexos">Anexos</a>
+  <ul class="collapse">
+  <li><a href="#trabajando-con-visual-studio-code-1" id="toc-trabajando-con-visual-studio-code-1" class="nav-link" data-scroll-target="#trabajando-con-visual-studio-code-1">Trabajando con Visual Studio Code</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Sintaxis de PROLOG: Hechos y Reglas</h1>
+<p class="subtitle lead">Aprende a formular con PROLOG</p>
+  <div class="quarto-categories">
+    <div class="quarto-category">PROLOG</div>
+    <div class="quarto-category">VisualStudio</div>
+    <div class="quarto-category">Bash</div>
+    <div class="quarto-category">Logica</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>Formulación de Hechos y Reglas para desarrollar bases de conocimiento en PROLOG</p>
+<section id="objetivos-de-la-sesión" class="level2">
+<h2 class="anchored" data-anchor-id="objetivos-de-la-sesión">Objetivos de la sesión</h2>
+<ul>
+<li>Entender la sintaxis de PROLOG para formular Hechos y Reglas.</li>
+<li>Saber traducir un Hecho o Premisa en lenguaje de PROLOG.</li>
+<li>Saber traducir una Regla de razonamiento en lenguaje de PROLOG.</li>
+<li>Saber como preguntar a PROLOG en base a su razonamiento cargado.</li>
+</ul>
+</section>
+<section id="razonando-con-prolog" class="level2">
+<h2 class="anchored" data-anchor-id="razonando-con-prolog">Razonando con PROLOG</h2>
+<p>Como hemos visto en la práctica anterior PROLOG funciona validando razonamientos.</p>
+<p>En al sesión anterior fuimos capaces de probar comparativas aritméticas y de estructuras, pero todo limitado a los números. En esta sesión ya vamos a probar el verdadero potencial de PROLOG desarrollando argumentaciones más complejas.</p>
+<p>Piensa por un momento en que necesitemos preguntar a PROLOG algo en específico…</p>
+<p>Prueba este código en la terminal…</p>
+<pre><code>¿ama monica a chandler?.</code></pre>
+<p>Parece que PROLOG no entiende que le estamos preguntando, vamos a probar usando ahora la sintaxis de PROLOG. Para ello usaremos una estructura, donde el predicado será <code>ama</code> y los términos serán las personas que queremos comprobar si se aman: <code>monica</code> y <code>chandler</code>. Prueba ahora…</p>
+<pre><code>ama(monica, chandler).</code></pre>
+<p>Parece que PROLOG sigue sin entendernos… Esto es porque PROLOG no sabe lo que significa <code>ama</code>, ni como debe de interpretarlo. Si recuerdas, la progamación lógica requiere que previamente hallamos explicado a PROLOG como como se definen los conceptos y como tiene que responder.</p>
+</section>
+<section id="bases-de-conocimiento" class="level2">
+<h2 class="anchored" data-anchor-id="bases-de-conocimiento">Bases de Conocimiento</h2>
+<p>Para poder dotar a PROLOG de este conocimiento necesitamos crear una base de conocimiento y razonamiento, lo que denominaremos un programa en PROLOG. Las bases de conocimiento se componen de dos partes muy relevantes:</p>
+<ul>
+<li><p>Los <em>Hechos</em> (<strong>Facts</strong>): son las ideas principales sobre las que basar el conocimiento, los pilares a partir de los cuales podemos comenzar nuestro razonamiento. Nuestra base de conocimiento.</p></li>
+<li><p>Las <em>Reglas</em> (<strong>Rules</strong>): son las reglas de inferencia sobre las cuales a partir de la base de conocimiento podemos relacionar, argumentar y responder a las preguntas.</p></li>
+</ul>
+<p>Es esencial que la base de conocimiento de nuestro programa sea acorde con el objetivo que queremos conseguir.</p>
+</section>
+<section id="desarrollo-de-bases-de-conocimiento-friends" class="level2">
+<h2 class="anchored" data-anchor-id="desarrollo-de-bases-de-conocimiento-friends">Desarrollo de Bases de Conocimiento: Friends</h2>
+<p>A partir del primer problema vamos a desarrollar la base de conocimiento que necesitamos para poder llevarlo a cabo. Para después probarla y cargarla en PROLOG.</p>
+<section id="creando-mi-primera-base-de-conocimiento" class="level3">
+<h3 class="anchored" data-anchor-id="creando-mi-primera-base-de-conocimiento">Creando mi primera base de conocimiento</h3>
+<p>Las bases de conocimiento o programas de PROLOG se definen escribiendo el código en un fichero de PROLOG, los ficheros de PROLOG tienen la extensión <code>.pl</code> (Esto es algo similar a otros lenguajes de programación como Java donde los ficheros tienen la extensión <code>.java</code>)</p>
+<p>Fuera de la terminal de PROLOG, ve a tu escritorio y crea una carpeta llamada <code>pract_prolog</code>, en esa carpeta crea un nuevo archivo llamado <code>friends.pl</code> (Puedes crear un archivo de texto y renombrarlo cambiando la extensión).</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Trabajando con extensiones
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Si nunca has manejado las extensiones de los archivos, son las siglas que acompañan al nombre de los archivos indicando que tipo de archivo es. Por ejemplo un documento word suele ir acompañado por la extensión <code>.docx</code>: <code>documento01.docx</code></p>
+<p><em>Mostrar las extensiones</em>. Es posible que no veas las extensiones de los archivos en tu ordenador, en Windows suelen estar ocultas por defecto. Para mostrarlas ve al explorador de archivos y en la pestaña <strong>Vista</strong> tendrás la opción de activarlas marcando la casilla de Mostrar Extensiones.</p>
+</div>
+</div>
+<p>Una vez creado ya puedes abrir el fichero para editarlo, como vamos a editar código lo ideal sería utilizar un editor de código. En la prácticas puedes usar el que consideres más opoturno, pero si no sabes cual usar puedes abrir el archivo con Visual Studio Code.</p>
+<p>Pasa el ratón por encima dale a click derecho y seleccionar <strong>Abrir con</strong>, busca entre los programas disponibles Visual Studio Code, verás que tiene un icono azul.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Trabajando con Visual Studio Code
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Visual Studio Code es un editor de código totalmente gratuito de miscrosoft (a diferencia de Visual Studio Community que es un entorno más avanzado pero que requiere de licencia).</p>
+<p>Con este editor podrás programar en cualquier lenguaje de programación. En nuestro caso vamos a usar Prolog, revisa siempre que Visual ha seleccionado el lenguaje correcto en la barra inferior.</p>
+<p>Cuando abres un archivo de código, Visual Studio identifica el lenguaje de programación mediante la extensión. En el caso de un <code>.pl</code> existen varios lenguajes de programación con que usan esta extensión. Verifica que Visual Studio está identificando correctamente la extensión en el lado derecho de la barra inferior de Visual. Deberá de poner Prolog, si pone otro lenguaje como PERL deberás de cambiarlo seleccionando el correcto.</p>
+<p><img src="visual_language.png" class="img-fluid"></p>
+<p>Para cambiar el lenguaje selecciona el nombre del lenguaje que aparece, un listado aparecerá donde puedes buscar el lenguaje que desees usar.</p>
+<p>También puedes usar la extensión de Prolog disponible para adquirir en la workshop de Visual Studio Code.</p>
+<p>Ve al anexo para más información de uso de Visual Studio Code con PROLOG.</p>
+</div>
+</div>
+<section id="facts" class="level4">
+<h4 class="anchored" data-anchor-id="facts">Facts</h4>
+<p>Primero necesitamos definir los hechos, estos serán la base esencial del conocimiento que tiene PROLOG, las verdades universales que usará para fundamentar sus respuestas.</p>
+<p>Los hechos son estructuras que vienen expresadas como…</p>
+<pre><code>nombre_predicado(nombre_1, ..., nombre_n).</code></pre>
+<p>Donde asignaremos un nombre del predicado y luego nombres de los individuos o varaibles que intervienen en esa verdad.</p>
+<p>Para nuestro ejemplo el primer hecho que establecimos fue que Mónica ama a Chandler, esto se expresa como</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode prolog code-with-copy"><code class="sourceCode prolog"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ama(monica<span class="kw">,</span> chandler)<span class="kw">.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Ahora a ese hecho incorporar dos nuevos hechos…</p>
+<ul>
+<li>Chandler ama a Mónica</li>
+<li>Joey ama a Rachel</li>
+</ul>
+</section>
+<section id="rules" class="level4">
+<h4 class="anchored" data-anchor-id="rules">Rules</h4>
+<p>Una vez tenemos nuestros hechos necesitamos dar a PROLOG unas reglas básicas para razonamiento.</p>
+<p>Las primera de las reglas que vamos a establecer es “Dos personas salen si se aman mutuamente”.</p>
+<p>Podemos representar esta regla en lenguaje de primer orden como como… <span class="math inline">\(\forall x \forall y (ama(x,y) \land ama(y,x) \to sale(x,y))\)</span></p>
+<p>Nos referimos a todos los inviduos por lo que usamos dos cuantificadores universales, y dos predicados:</p>
+<ul>
+<li>el primero que ya hemos creado en el bloque de hechos <code>ama(x,y)</code>. X ama a Y.</li>
+<li>el segundo que es que estamos definiendo <code>sale(x,y)</code> que es la consecuencia de que dos personas se amen.</li>
+</ul>
+<p>Para poder codificarlo en PROLOG podemos hacerlo de la siguiente forma:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode prolog code-with-copy"><code class="sourceCode prolog"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>sale(<span class="dt">X</span><span class="kw">,</span><span class="dt">Y</span>)<span class="kw">:-</span> ama(<span class="dt">X</span><span class="kw">,</span><span class="dt">Y</span>)<span class="kw">,</span> ama(<span class="dt">Y</span><span class="kw">,</span><span class="dt">X</span>)<span class="kw">.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Fijaos que no necesitamos expresar cuantificadores, y que además hemos invertido la formula de primer orden.</p>
+<p>Estamos expresando que sale(x,y) es el resultado de que dos personas se amen. A la hora de representarlo:</p>
+<ul>
+<li>el condicional <span class="math inline">\(\to\)</span> se expresa con <code>:-</code></li>
+<li>la conjunción <span class="math inline">\(\land\)</span> se expresa con <code>,</code></li>
+<li>la disyunción <span class="math inline">\(\lor\)</span> se expresaría con <code>;</code></li>
+</ul>
+<p>Por otro lado en este caso hacemos uso de variables (X, Y) y no de estructuras como en los hechos. Esto es ya que ahora estamos definiendo reglas, PROLOG entiende que esas variables tendran un valor que definirá el usuario y el lo aplicará a la regla usando los hechos.</p>
+<p>Ahora prueba definir una nueva regla: “Dos personas son amigos si almenos uno de ellos ama a el otro.”</p>
+</section>
+<section id="el-programa-friends.pl" class="level4">
+<h4 class="anchored" data-anchor-id="el-programa-friends.pl">El programa friends.pl</h4>
+<p>Cuando termines deberas de tener ya un programa completo de PROLOG definido en tu archivo <code>friends.pl</code>. El programa debería de quedar como sigue:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode prolog code-with-copy"><code class="sourceCode prolog"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">% Friends program</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">% Facts</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>ama(monica<span class="kw">,</span> chandler)<span class="kw">.</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>ama(chandler<span class="kw">,</span> monica)<span class="kw">.</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>ama(joey<span class="kw">,</span> rachel)<span class="kw">.</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">% Rules</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>sale(<span class="dt">X</span><span class="kw">,</span><span class="dt">Y</span>)<span class="kw">:-</span> ama(<span class="dt">X</span><span class="kw">,</span><span class="dt">Y</span>)<span class="kw">,</span> ama(<span class="dt">Y</span><span class="kw">,</span><span class="dt">X</span>)<span class="kw">.</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>amigos(<span class="dt">X</span><span class="kw">,</span><span class="dt">Y</span>)<span class="kw">:-</span> ama(<span class="dt">X</span><span class="kw">,</span><span class="dt">Y</span>)<span class="kw">;</span> ama(<span class="dt">Y</span><span class="kw">,</span><span class="dt">X</span>)<span class="kw">.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Para la parte de hechos, hemos añadido que tanto Mónica como Chandler se aman mutuamente y que además Joey ama a Rachel. Después de cada hecho hay que añadir el <code>.</code> final de los comandos de PROLOG.</p>
+<p>Y en las reglas hemos definido la segunda regla como <span class="math inline">\(\forall x \forall y (ama(x,y) \lor ama(y,x) \to amigos(x,y))\)</span> en lenguaje PROLOG.</p>
+<p>Es muy importante seguir el orden: primero los Hechos y segundo las Reglas. Esto pues las reglas se fundamentan en los hechos, pero además podemos enunciar reglas basadas en otras reglas, en este segundo caso deben de seguir el orden de dependencia.</p>
+<p><strong>IMPORTANTE!</strong> Guarda el archivo antes de cerrarlo.</p>
+</section>
+</section>
+<section id="cargando-el-programa-en-prolog" class="level3">
+<h3 class="anchored" data-anchor-id="cargando-el-programa-en-prolog">Cargando el programa en PROLOG</h3>
+<p>Una vez tienes tu programa de PROLOG terminado debemos de cargarlo en la base de conocimiento de PROLOG para que podamos hacerle preguntas al respecto.</p>
+<p>Para esta parte es recomendable que, desde la consola, cambies de directorio a la carpeta que has creado en el apartado anterior donde está el archivo <code>friends.pl</code>. Recuerda que puedes usar el comando <code>cd().</code> para moverte en la terminal.</p>
+<p>Una vez estes en la carpeta donde se encuentra tu programa basta con ejecutar el comando <code>['nombre_archivo.pl'].</code>En nuestro caso</p>
+<pre><code>?- ['friends.pl'].</code></pre>
+<p>Una vez hecho esto PROLOG cargará en su memoria todos los hechos y reglas enunciados. Si más adelante cambiamos algo del código, bastará con volverlo a cargar.</p>
+</section>
+<section id="preguntando-a-prolog" class="level3">
+<h3 class="anchored" data-anchor-id="preguntando-a-prolog">Preguntando a PROLOG</h3>
+<p>Ahora que ya tienes cargada la base de conocimiento friends, puedes preguntar a PROLOG.</p>
+<p>Prueba la siguientes preguntas:</p>
+<ul>
+<li>¿Ama Mónica a Chandler?</li>
+<li>¿Ama Phoebe a Chandler?</li>
+<li>¿Sale Mónica con Chandler?</li>
+<li>¿Sale Chandler con Mónica?</li>
+<li>¿Sale Rachel con Joey?</li>
+<li>¿Son Mónica y Chandler amigos?</li>
+<li>¿Son Gunter y Chandler amigos?</li>
+</ul>
+<p>¿Qué te devuelve en cada caso? Recuerda que debes de usar la sintaxis que has diseñado para Prolog. Por ejemplo, la primera pregunta sería <code>ama(monica,chandler).</code></p>
+<p>Por otro lado puedes hacer preguntas más genéricas y PROLOG intentará deducir la respuesta a partir de las reglas y la base de conocimiento. Por ejemplo, ¿a quién ama Mónica?</p>
+<p>Basta con escribir <code>ama(monica,X).</code>, de esta forma PROLOG nos dirá que valor puede tomar X.</p>
+<p>Intenta responder a las siguientes preguntas:</p>
+<ul>
+<li>¿Con quién sale Chandler?</li>
+<li>¿Con quién sale Rachel?</li>
+<li>¿De quién es amigo Joey?</li>
+</ul>
+<p>Ahora prueba a escribir <code>salen(X,Y).</code> o <code>salen(X,X).</code>. ¿Qué pasa?</p>
+</section>
+</section>
+<section id="trazas-y-depuración-en-prolog" class="level2">
+<h2 class="anchored" data-anchor-id="trazas-y-depuración-en-prolog">Trazas y depuración en PROLOG</h2>
+<p>Como puedes observar Prolog te devuelve directamente la respuesta a tu pregunta. Pero muchas veces podemos necesitar entender como está razonando Prolog.</p>
+<p>Prolog ya está creado para razonar usando la lógica, nosotros solo establecemos las reglas que deben de seguirse y las premisas de conocimiento. Para saber si el razonamiento creado es correcto podemos querer estudiar paso a paso que argumentos sigue Prolog en la generación de su respuesta.</p>
+<p>Para ello podemos activar la depuración (<em>debugging</em>), esta nos mostrará los pasos que se han seguido para dar repuesta.</p>
+<p>Escribe el siguiente comando en la terminal:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">?-</span> trace.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Ahora se habrá activado la función de depuración y Prolog devolverá la traza seguida para determinar la respuesta. Una vez ejecutada la pregunta, sigue presionando enter cada vez para que Prolog devuelva una a uno a uno los pasos. Prueba las preguntas anteriores y analiza que traza devuelve.</p>
+<p>Para salir del modo depuración escibre el comando <code>notrace.</code> y luego <code>nodebug.</code>, volverá la terminal al funcionamiento original.</p>
+</section>
+<section id="ejercicio-práctico" class="level2">
+<h2 class="anchored" data-anchor-id="ejercicio-práctico">Ejercicio Práctico</h2>
+<p>Crea un programa de PROLOG que sea capaz de responder a preguntas sobre el menú de un restaurante:</p>
+<ul>
+<li>Un plato es un segundo si es carne o pescado.</li>
+<li>Una combinación de 3 platos es un menú, si está formada por un primero, un segundo y un postre.</li>
+</ul>
+<p>Los hechos que conforman este programa son:</p>
+<ul>
+<li>La ensalada y la sopa son primeros.</li>
+<li>El pollo es un plato de carne.</li>
+<li>El rape y la lubina es un plato de rape.</li>
+<li>Las natillas y el flan son postres.</li>
+</ul>
+<p>Crea el fichero restaurante.pl y escribe tu programa de PROLOG, después puedes probarlo preguntando:</p>
+<ul>
+<li>¿El rape es un primer plato?</li>
+<li>¿Existe el menu compuesto por ensalada, sopa y natillas?</li>
+</ul>
+</section>
+<section id="anexos" class="level2">
+<h2 class="anchored" data-anchor-id="anexos">Anexos</h2>
+<section id="trabajando-con-visual-studio-code-1" class="level3">
+<h3 class="anchored" data-anchor-id="trabajando-con-visual-studio-code-1">Trabajando con Visual Studio Code</h3>
+<p>Una propuesta para las prácticas será utilizar Visual Studio Code, este entorno es totalmente customizable permitiendo trabajar con múltiples lenguajes de programación e incorporando diversas extensiones que permiten adaptarlo a la tarea de programación que deseemos.</p>
+<p>Una vez abierto ve a la tienda de extensiones, donde deberás de buscar PROLOG e instalarlo. Esto permitirá que Visual Studio pueda leer y ayudarte a escribir mejor código de PROLOG, también coloreará el código para mejor visualización.</p>
+<p><img src="prolog_ext.png" class="img-fluid"></p>
+<p>Una de las ventajas de Visual Studio es que podemos trabajar con SWI-PROLOG sin necesidad de abrir la terminal externa del programa. Visual Studio nos permite abrir terminales en el propio entorno y trabajar desde ahí. Para ello debes de ir <code>Terminal &gt; New Terminal</code> en las opciones superiores de Visual Studio Code. Se te abrirá una terminal en la parte inferior del entorno. Esta terminal no es la misma que la de PROLOG, sino la terminal del sistema (CMD, PowerShell, o el Shell)</p>
+<p>Para acceder a PROLOG, si todo ha sido instalando correctamente, basta con escribir <code>swipl</code> y dar a enter. Ahora se activará dentro de la terminal PROLOG y verás algo similar a la terminal externa. Ahora ya puedes trabajar con prolog.</p>
+<p><img src="visual_terminal.png" class="img-fluid"></p>
+<p>De esta forma podrás a la vez que editar un programa de PROLOG ejecutarlo y ver sus resultados en la misma ventana.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">2024 Carviagu. Powered with <a href="https://quarto.org/">Quarto</a> and <a href="https://pages.github.com/">GitHub</a></div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right"><a href="https://cunef.edu"><img src="resources/images/logo2.png" class="img-fluid" alt="CUNEF" width="65"></a></div>
+  </div>
+</footer>
+
+
+
+</body></html>
