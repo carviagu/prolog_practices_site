@@ -25,7 +25,7 @@
     "href": "units.html",
     "title": "Sesiones",
     "section": "",
-    "text": "Estas son las sesiones de prácticas, entra en cada una para ver las explicaciones, ejercicios e instrucciones paso a paso.\nRecuerda que después de completar la sesión deberás de realizar el test disponible en canvas.\n\n\n\n\n\n\n\n\n  \n\n\n\n\nIntroducción a PROLOG\n\n\nAprende lo indispensable para trabajar con PROLOG\n\n\n\n\nPROLOG\n\n\nVisualStudio\n\n\nSistemas Expertos\n\n\nBash\n\n\n \n\n\n \n\n\n\n\n  \n\n\n\n\nSintaxis de PROLOG: Hechos y Reglas\n\n\nAprende a formular con PROLOG\n\n\n\n\nPROLOG\n\n\nVisualStudio\n\n\nBash\n\n\nLogica\n\n\n \n\n\n \n\n\n\n\nNo matching items"
+    "text": "Estas son las sesiones de prácticas, entra en cada una para ver las explicaciones, ejercicios e instrucciones paso a paso.\nRecuerda que después de completar la sesión deberás de realizar el test disponible en canvas.\n\n\n\n\n\n\n\n\n  \n\n\n\n\nEjercicios PROLOG I\n\n\nPráctica con ejercicios básicos de PROLOG\n\n\n\n\nPROLOG\n\n\nVisualStudio\n\n\nBash\n\n\nLogica\n\n\n \n\n\n \n\n\n\n\n  \n\n\n\n\nIntroducción a PROLOG\n\n\nAprende lo indispensable para trabajar con PROLOG\n\n\n\n\nPROLOG\n\n\nVisualStudio\n\n\nSistemas Expertos\n\n\nBash\n\n\n \n\n\n \n\n\n\n\n  \n\n\n\n\nSintaxis de PROLOG: Hechos y Reglas\n\n\nAprende a formular con PROLOG\n\n\n\n\nPROLOG\n\n\nVisualStudio\n\n\nBash\n\n\nLogica\n\n\n \n\n\n \n\n\n\n\nNo matching items"
   },
   {
     "objectID": "sesiones/01-intro/index.html",
@@ -264,5 +264,82 @@
     "title": "Sintaxis de PROLOG: Hechos y Reglas",
     "section": "Ejercicio Práctico",
     "text": "Ejercicio Práctico\nCrea un programa de PROLOG que sea capaz de responder a preguntas sobre el menú de un restaurante:\n\nUn plato es un segundo si es carne o pescado.\nUna combinación de 3 platos es un menú, si está formada por un primero, un segundo y un postre.\n\nLos hechos que conforman este programa son:\n\nLa ensalada y la sopa son primeros.\nEl pollo es un plato de carne.\nEl rape y la lubina es un plato de rape.\nLas natillas y el flan son postres.\n\nCrea el fichero restaurante.pl y escribe tu programa de PROLOG, después puedes probarlo preguntando:\n\n¿El rape es un primer plato?\n¿Existe el menu compuesto por ensalada, sopa y natillas?"
+  },
+  {
+    "objectID": "sesiones/03-exercises_I/index.html",
+    "href": "sesiones/03-exercises_I/index.html",
+    "title": "Ejercicios PROLOG I",
+    "section": "",
+    "text": "Práctica lo aprendido en las dos sesiones de formación resolviendo los siguientes ejercicios de PROLOG"
+  },
+  {
+    "objectID": "sesiones/03-exercises_I/index.html#objetivos-de-la-sesión",
+    "href": "sesiones/03-exercises_I/index.html#objetivos-de-la-sesión",
+    "title": "Ejercicios PROLOG I",
+    "section": "Objetivos de la sesión",
+    "text": "Objetivos de la sesión\n\nSaber formular y escribir código de PROLOG.\nDesarrollar la capacidad de resolución de problemas de PROLOG.\nComprender los distintos caso de uso que podemos encontrar en este paradigma."
+  },
+  {
+    "objectID": "sesiones/03-exercises_I/index.html#introducción",
+    "href": "sesiones/03-exercises_I/index.html#introducción",
+    "title": "Ejercicios PROLOG I",
+    "section": "Introducción",
+    "text": "Introducción\nEn esta sesión se te presentan diferentes ejercicios donde deberás usar los conocimientos de adquiridos en las sesiones anteriores para poder reslverlos.\nLos ejercicios presentan distintos casos y problemas que se pueden presentar para que puedas conocerlos y aprender a desarrollar soluciones a los mismos.\nAl final de la sesión deberás de realizar el test de canvas correspondiente donde tendrás preguntas relacionadas con estos ejercicios."
+  },
+  {
+    "objectID": "sesiones/03-exercises_I/index.html#ejercicio-02",
+    "href": "sesiones/03-exercises_I/index.html#ejercicio-02",
+    "title": "Ejercicios PROLOG I",
+    "section": "Ejercicio 02",
+    "text": "Ejercicio 02\nDado el siguiente programa:\nojos(ana,azul).\nojos(paco,azul).\n\npadre(valeria,paco).\nmadre(valeria,ana).\ncabello(ana,rojo).\ncabello(paco,negro).\n\nojos(X,Color) :- madre(X,M), padre(X,P), ojos(M,Color), ojos(P,Color).\ncabello(X,rojo) :- madre(X,M), cabello(M,rojo).\n¿Cómo podemos saber que persona o personas tienen los ojos de color azul y el cabello rojo?"
+  },
+  {
+    "objectID": "sesiones/03-exercises_I/index.html#ejercicio-03",
+    "href": "sesiones/03-exercises_I/index.html#ejercicio-03",
+    "title": "Ejercicios PROLOG I",
+    "section": "Ejercicio 03",
+    "text": "Ejercicio 03\nDado el siguiente programa:\nprimero(ensalada).\nprimero(sopa).\ncarne(pollo).\npescado(rape).\npescado(lubina).\npostre(natillas).\npostre(flan).\n\ncomida(X,Y,Z) :- primero(X), segundo(Y),postre(Z).\nsegundo(X):-carne(X).\nsegundo(Y):-pescado(Y).\n¿Cómo podemos obtener solo aquellas comidas en las que el segundo plato es la lubina?"
+  },
+  {
+    "objectID": "sesiones/03-exercises_I/index.html#ejercicio-04",
+    "href": "sesiones/03-exercises_I/index.html#ejercicio-04",
+    "title": "Ejercicios PROLOG I",
+    "section": "Ejercicio 04",
+    "text": "Ejercicio 04\nDado el siguiente programa:\nvampiro(lestat).\nvampiro(dracula).\nmuerde(lestat,louis).\nmuerde(lestat,ana).\nmuerde(scooby-doo,shaggy-rogers).\nEscribe una regla que represente la siguiente información:\n\nUna persona se convierte en vampiro si es mordida por un vampiro"
+  },
+  {
+    "objectID": "sesiones/03-exercises_I/index.html#ejercicio-05",
+    "href": "sesiones/03-exercises_I/index.html#ejercicio-05",
+    "title": "Ejercicios PROLOG I",
+    "section": "Ejercicio 05",
+    "text": "Ejercicio 05\nDada la siguiente base de conocimiento:\npadece(pedro,gripe).\npadece(pedro,hepatitis).\npadece(juan,hepatitis).\npadece(maria,intoxicacion).\n\nsintoma(fiebre,gripe).\nsintoma(cansancio,hepatitis).\nsintoma(vomito,intoxicacion).\nsintoma(cansancio,gripe).\n\nsuprime(aspirina,fiebre).\nsuprime(motilium,vomito).\nAñade las siguientes reglas:\n\nSi una enfermedad tiene un síntoma y un medicamento suprime ese sintoma, entonces el medicamento alivia esa enfermedad.\nSi alguien padece una enfermedad y un medicamento alivia esa enfermedad entonces esa persona debe de tomar el medicamento.\n\nDespués indica como podrías saber que sintomas presenta pedro."
+  },
+  {
+    "objectID": "sesiones/03-exercises_I/index.html#ejercicio-06",
+    "href": "sesiones/03-exercises_I/index.html#ejercicio-06",
+    "title": "Ejercicios PROLOG I",
+    "section": "Ejercicio 06",
+    "text": "Ejercicio 06\nCrea un programa que represente los siguientes reglas:\n\nDada una persona y un animal, si esa persona es el amo del animal entonces el animal es una mascota.\n\nUn gato o un perro son animales.\n\nEsta será tu base de conocimiento (hechos):\n\nmiau es un gato\nEnrique es amo de miau.\nEnrique es amo de guau.\nJuan es una persona.\nEnrique es una persona.\n\nUna vez generado haz varias pruebas para verificar que el programa es correcto.\n\n¿De quien es dueño miau?\n¿Qué personas hay en la base de conocimiento?\n¿Qué tendrías que añadir para que mascota(X) devuelva X=miau y X=guau?"
+  },
+  {
+    "objectID": "sesiones/03-exercises_I/index.html#ejercicio-08",
+    "href": "sesiones/03-exercises_I/index.html#ejercicio-08",
+    "title": "Ejercicios PROLOG I",
+    "section": "Ejercicio 08",
+    "text": "Ejercicio 08\nTenemos las personas de una fiesta, definidas por el predicado hombre() y mujer()\nhombre(alfredo).\nhombre(felipe).\nhombre(francisco).\nmujer(sonia).\nmujer(eva).\nmujer(carmen).\nTenemos las bebidas que toma cada invitado mediante el predicado bebe()\nbebe(alfredo, whisky).\nbebe(alfredo, ron_cola).\nbebe(felipe, cerveza).\nbebe(felipe, gin_tonic).\nbebe(felipe,ron_cola).\nbebe(francisco, vino).\nbebe(francisco, malibu).\nbebe(sonia, gin_tonic).\nbebe(sonia, malibu).\nbebe(eva, vino).\nbebe(eva, cerveza).\nbebe(carmen, whisky).\nbebe(carmen, ron_cola).\nParte A\nDefine el predicado pareja(X,Y) que exprese que dos personas son pareja cuando X es un hombre e Y un mujer y tengan al menos una bebida favorita en común. También define el predicado pareja2(X,Y) que se satisface cuando X e Y tienen al menos dos bebidas favoritas en común.\nParte B\nAñade ahora dos nuevas premisas…\n\nPepe bebe cualquier cosa que beba Alfredo.\nElena bebe cualquier cosa que beban Sonia o Felipe."
+  },
+  {
+    "objectID": "sesiones/03-exercises_I/index.html#ejercicio-01",
+    "href": "sesiones/03-exercises_I/index.html#ejercicio-01",
+    "title": "Ejercicios PROLOG I",
+    "section": "Ejercicio 01",
+    "text": "Ejercicio 01\nDado el siguiente programa:\nlegusta(pepe,pesca).\nlegusta(maria,bailar).\nlegusta(ana,pesca).\nlegusta(pepe,musica).\nlegusta(maria,musica).\nlegusta(ana,bailar).\n¿Cómo puedo saber que le gusta a Ana? ¿Y a quién le gusta la música?"
+  },
+  {
+    "objectID": "sesiones/03-exercises_I/index.html#ejercicio-07",
+    "href": "sesiones/03-exercises_I/index.html#ejercicio-07",
+    "title": "Ejercicios PROLOG I",
+    "section": "Ejercicio 07",
+    "text": "Ejercicio 07\nCrea un programa que represente la siguiente argumentación:\n\nSi X está arriba de Y y se tocan, entonces X está encima de Y .\nLa taza está arriba del libro.\nLa taza toca al libro."
   }
 ]
