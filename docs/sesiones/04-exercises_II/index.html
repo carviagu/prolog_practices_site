@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.353">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Lógica Matemática - Ejercicios PROLOG II</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../units.html" rel="" target="">
+ <span class="menu-text">Sesiones</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#objetivos-de-la-sesión" id="toc-objetivos-de-la-sesión" class="nav-link active" data-scroll-target="#objetivos-de-la-sesión">Objetivos de la sesión</a></li>
+  <li><a href="#introducción" id="toc-introducción" class="nav-link" data-scroll-target="#introducción">Introducción</a></li>
+  <li><a href="#ejercicio-personas" id="toc-ejercicio-personas" class="nav-link" data-scroll-target="#ejercicio-personas">Ejercicio: Personas</a></li>
+  <li><a href="#ejercicio-animales" id="toc-ejercicio-animales" class="nav-link" data-scroll-target="#ejercicio-animales">Ejercicio: Animales</a></li>
+  <li><a href="#ejercicio-biblioteca" id="toc-ejercicio-biblioteca" class="nav-link" data-scroll-target="#ejercicio-biblioteca">Ejercicio: Biblioteca</a></li>
+  <li><a href="#ejercicio-familia" id="toc-ejercicio-familia" class="nav-link" data-scroll-target="#ejercicio-familia">Ejercicio: Familia</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Ejercicios PROLOG II</h1>
+<p class="subtitle lead">Práctica con ejercicios avanzados de PROLOG</p>
+  <div class="quarto-categories">
+    <div class="quarto-category">PROLOG</div>
+    <div class="quarto-category">VisualStudio</div>
+    <div class="quarto-category">Bash</div>
+    <div class="quarto-category">Logica</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>Práctica realizando ejercicios más avanzados de PROLOG</p>
+<section id="objetivos-de-la-sesión" class="level2">
+<h2 class="anchored" data-anchor-id="objetivos-de-la-sesión">Objetivos de la sesión</h2>
+<ul>
+<li>Saber formular y escribir código de PROLOG.</li>
+<li>Desarrollar la capacidad de resolución de problemas de PROLOG.</li>
+<li>Trabajar en problemas más complejos que requieren varios desarrollos.</li>
+</ul>
+</section>
+<section id="introducción" class="level2">
+<h2 class="anchored" data-anchor-id="introducción">Introducción</h2>
+<p>En esta sesión se te presentan diferentes ejercicios más complejos que requierirán desarrollos más extensos de programas comletos de PROLOG.</p>
+<p>Estos ejercicios supondrán el formato similar al que verás en la práctica final de la asignatura que combina este tipo de ejercicio con preguntas cortas similares a las vistas en la anterior sesión.</p>
+</section>
+<section id="ejercicio-personas" class="level2">
+<h2 class="anchored" data-anchor-id="ejercicio-personas">Ejercicio: Personas</h2>
+<p>Elabora un programa de PROLOG con los siguientes enunciados:</p>
+<ul>
+<li>Lucía es una mujer.</li>
+<li>Lucas es un hombre.</li>
+<li>Lucas es saludable.</li>
+<li>Lucía es saludable.</li>
+<li>Lucas es rico.</li>
+<li>Cualquiera es un viajero si es saludable y rico.</li>
+<li>Cualquiera puede viajar si es un viajero.</li>
+</ul>
+<p>Tu programa deberá de ser capaz de encontrar las siguientes soluciones:</p>
+<ul>
+<li>¿Quién puede viajar?</li>
+<li>¿Quién es saludable y rico?</li>
+</ul>
+</section>
+<section id="ejercicio-animales" class="level2">
+<h2 class="anchored" data-anchor-id="ejercicio-animales">Ejercicio: Animales</h2>
+<p>Deberás de desarrollar un sistema experto que tenga la cacapcidad de identificar animales en base a sus características proporcionadas. En concreto tenemos interés en identificar a 6 animales distintos: tigre, jirafa, cebra, avestruz, pingüino y albatros.</p>
+<p>Las reglas de razonamiento que usará nuestro sistema serán las siguientes:</p>
+<ul>
+<li>Si X tiene pelo y da leche, entonces es un mamífero.</li>
+<li>Si X tiene plumas, vuela y pone huevos, entonces es un ave.</li>
+<li>Si X es mamífero y come carne, entonces es un carnívoro.</li>
+<li>Si X es mamífero, tiene dientes agudos, tiene garras y tiene ojos que miran hacia delante, entonces es un carnívoro.</li>
+<li>Si X es un mamífero y tiene pezuñas, entonces es un ungulado.</li>
+<li>Si X es un mamífero y rumia, entonces es un ungulado.</li>
+<li>Si X es un carnívoro, de color leonado y tiene franjas negras, entonces es un tigre.</li>
+<li>Si X es ungulado, tiene patas largas, cuello largo, es de color leonado y tiene manchas oscuras, entonces es una jirafa.</li>
+<li>Si X es ungulado, de color blanco y con franjas negras, entonces es una cebra.</li>
+<li>Si X es un ave, no vuela, tiene patas largas, cuello largo y es blanca y negra, entonces es un avestruz.</li>
+<li>Si X es un ave, no vuela, nada, y es blanca y negra, entonces es un pingüino.</li>
+<li>Si X es un ave y nada muy bien, entonces es un albatros.</li>
+</ul>
+<p><strong>PARTE A</strong> Para el siguiente conjunto de hechos sobre Luisa:</p>
+<ul>
+<li>Luisa tiene pelo y da leche.</li>
+<li>Luisa rumia.</li>
+<li>Luisa tiene patas largas.</li>
+<li>Luisa tiene cuello largo.</li>
+<li>Luisa es de color leonado.</li>
+<li>Luisa tiene manchas oscuras.</li>
+</ul>
+<p>¿Qué animal es Luisa? Razona a partir de las reglas que animal es. Después escribe el programa con los hechos y las reglas para poder confirmar de que animal se trata.</p>
+<p><strong>PARTE B</strong> Para el siguiente conjunto de hechos sobre Felipe:</p>
+<ul>
+<li>Felipe tiene pelo y da leche.</li>
+<li>Felipe tiene dientes agudos, garras y ojos que miran hacia delante.</li>
+<li>Felipe tiene color leonado.</li>
+<li>Felipe tiene franjas negras.</li>
+</ul>
+<p>¿Qué animal es Felipe? Razona a partir de las reglas que animal es. Después escribe el programa con los hechos y las reglas para poder confirmar de que animal se trata.</p>
+</section>
+<section id="ejercicio-biblioteca" class="level2">
+<h2 class="anchored" data-anchor-id="ejercicio-biblioteca">Ejercicio: Biblioteca</h2>
+<p>Hay que desarrollar un sistema experto para gestionar las autorizaciones de préstamo a los usuarios de libros y películas. Para ello necesitamos tener una base de conocimiento compuesta por:</p>
+<ul>
+<li>usuarios de la biblioteca</li>
+<li>libros y películas disponibles en el catálogo.</li>
+<li>libros y películas prestados y a qué usuario.</li>
+</ul>
+<p>Por otro lado necesitaremos definir el funcionamiento básico para poder prestar los libros: <em>Como regla general no se prestára un libro o película a todo usuario que ya tenga un libro o película en préstamo, teniendo en cuenta que si solicita un libro y tiene una película en préstamo si se le concederá el préstamos al ser elementos distintos del catálogo de la biblioteca.</em></p>
+<p>Teniendo en cuenta que nuestra base de datos se compone de los siguientes hechos:</p>
+<ul>
+<li>Mario, Carlota, Pablo, Elena y Paula son usuarios de la biblioteca.</li>
+<li>“Tirant Lo Blanch”, “El Quijote”, “Juego de Tronos”, “El Mundo Perdido”, “Los Juegos del Hambre”, “Robot Dreams”, “El Principito”, “Yo Robot” son libros.</li>
+<li>“El Mundo Perdido”, “Dinotopia”, “La Vida es Bella”, “Robot Dreams” son películas.</li>
+</ul>
+<p>Por otro lado, Mario tiene en préstamo el libro “El Quijote”, Elena tiene en préstamos la película “La Vida es Bella” y Paula tiene en prestámo tanto el libro como la película de “Robot Dreams”.</p>
+<p>Construye la base de conocimiento con las reglas necesarias para poder confirmar si un usuario tiene derecho al préstamo de un elemento del catálogo.</p>
+<p>Deberá de ser capaz de…</p>
+<ul>
+<li>Conceder un préstamo a Carlota del libro “Tirant lo Blanch”.</li>
+<li>Conceder un préstamo a Mario de la película “Dinotopia”.</li>
+<li>Denegar un préstamo a Elena de la película “La Vida es Bella”.</li>
+<li>Denegar un préstamo a Pablo del libro “Robot Dreams”</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+La cláusula <code>not</code>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Para este ejercicio podrá resultarte útil usar la cláusula <code>not</code> que nos permitirá emular la negación habitual que usamos en lógica de primer orden.</p>
+<p>Por ejemplo si queremos demostrar que X no ama a Y sería <code>not(ama(X,Y))</code></p>
+</div>
+</div>
+</section>
+<section id="ejercicio-familia" class="level2">
+<h2 class="anchored" data-anchor-id="ejercicio-familia">Ejercicio: Familia</h2>
+<p>Define los siguientes predicados:</p>
+<ul>
+<li>hermanos(X,Y) que expresa que dos personas son hermanos.</li>
+<li>primos(X,Y) que expresa que dos personas son primos.</li>
+<li>nieto(X,Y) que expresa que X es nieto de Y.</li>
+<li>descendiente(X,Y) que expresa que X es desciente de Y.</li>
+</ul>
+<p>Dada la siguiente base de hechos:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode prolog code-with-copy"><code class="sourceCode prolog"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>padre(a<span class="kw">,</span>b)<span class="kw">.</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>padre(a<span class="kw">,</span>c)<span class="kw">.</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>padre(b<span class="kw">,</span>d)<span class="kw">.</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>padre(b<span class="kw">,</span>e)<span class="kw">.</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>padre(c<span class="kw">,</span>f)<span class="kw">.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Que define el siguiente árbol familiar:</p>
+<div class="cell" data-fig-width="2" data-fig-height="3">
+<div class="cell-output-display">
+<div>
+<div>
+<svg width="192" height="288" viewbox="0.00 0.00 206.00 188.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 184)"> <polygon fill="white" stroke="transparent" points="-4,4 -4,-184 202,-184 202,4 -4,4"></polygon> <!-- a --> <g id="node1" class="node">
+<title>
+a
+</title>
+<ellipse fill="none" stroke="black" cx="135" cy="-162" rx="27" ry="18"></ellipse> <text text-anchor="middle" x="135" y="-157.8" font-family="Times,serif" font-size="14.00">a</text> </g> <!-- b --> <g id="node2" class="node">
+<title>
+b
+</title>
+<ellipse fill="none" stroke="black" cx="99" cy="-90" rx="27" ry="18"></ellipse> <text text-anchor="middle" x="99" y="-85.8" font-family="Times,serif" font-size="14.00">b</text> </g> <!-- a&#45;&#45;b --> <g id="edge1" class="edge">
+<title>
+a–b
+</title>
+<path fill="none" stroke="black" d="M126.65,-144.76C120.83,-133.46 113.11,-118.44 107.3,-107.15"></path> </g> <!-- c --> <g id="node5" class="node">
+<title>
+c
+</title>
+<ellipse fill="none" stroke="black" cx="171" cy="-90" rx="27" ry="18"></ellipse> <text text-anchor="middle" x="171" y="-85.8" font-family="Times,serif" font-size="14.00">c</text> </g> <!-- a&#45;&#45;c --> <g id="edge4" class="edge">
+<title>
+a–c
+</title>
+<path fill="none" stroke="black" d="M143.35,-144.76C149.17,-133.46 156.89,-118.44 162.7,-107.15"></path> </g> <!-- d --> <g id="node3" class="node">
+<title>
+d
+</title>
+<ellipse fill="none" stroke="black" cx="27" cy="-18" rx="27" ry="18"></ellipse> <text text-anchor="middle" x="27" y="-13.8" font-family="Times,serif" font-size="14.00">d</text> </g> <!-- b&#45;&#45;d --> <g id="edge2" class="edge">
+<title>
+b–d
+</title>
+<path fill="none" stroke="black" d="M84.43,-74.83C72.02,-62.77 54.27,-45.51 41.8,-33.38"></path> </g> <!-- e --> <g id="node4" class="node">
+<title>
+e
+</title>
+<ellipse fill="none" stroke="black" cx="99" cy="-18" rx="27" ry="18"></ellipse> <text text-anchor="middle" x="99" y="-13.8" font-family="Times,serif" font-size="14.00">e</text> </g> <!-- b&#45;&#45;e --> <g id="edge3" class="edge">
+<title>
+b–e
+</title>
+<path fill="none" stroke="black" d="M99,-71.7C99,-60.85 99,-46.92 99,-36.1"></path> </g> <!-- f --> <g id="node6" class="node">
+<title>
+f
+</title>
+<ellipse fill="none" stroke="black" cx="171" cy="-18" rx="27" ry="18"></ellipse> <text text-anchor="middle" x="171" y="-13.8" font-family="Times,serif" font-size="14.00">f</text> </g> <!-- c&#45;&#45;f --> <g id="edge5" class="edge">
+<title>
+c–f
+</title>
+<path fill="none" stroke="black" d="M171,-71.7C171,-60.85 171,-46.92 171,-36.1"></path> </g> </g>
+</svg>
+</div>
+</div>
+</div>
+</div>
+<p>Desarrolla los predicados anteriores para poder definir de forma correcta las relaciones usando los hechos disponibles.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">2024 Carviagu. Powered with <a href="https://quarto.org/">Quarto</a> and <a href="https://pages.github.com/">GitHub</a></div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right"><a href="https://cunef.edu"><img src="resources/images/logo2.png" class="img-fluid" alt="CUNEF" width="65"></a></div>
+  </div>
+</footer>
+
+
+
+</body></html>

@@ -25,7 +25,7 @@
     "href": "units.html",
     "title": "Sesiones",
     "section": "",
-    "text": "Estas son las sesiones de prácticas, entra en cada una para ver las explicaciones, ejercicios e instrucciones paso a paso.\nRecuerda que después de completar la sesión deberás de realizar el test disponible en canvas.\n\n\n\n\n\n\n\n\n  \n\n\n\n\nEjercicios PROLOG I\n\n\nPráctica con ejercicios básicos de PROLOG\n\n\n\n\nPROLOG\n\n\nVisualStudio\n\n\nBash\n\n\nLogica\n\n\n \n\n\n \n\n\n\n\n  \n\n\n\n\nIntroducción a PROLOG\n\n\nAprende lo indispensable para trabajar con PROLOG\n\n\n\n\nPROLOG\n\n\nVisualStudio\n\n\nSistemas Expertos\n\n\nBash\n\n\n \n\n\n \n\n\n\n\n  \n\n\n\n\nSintaxis de PROLOG: Hechos y Reglas\n\n\nAprende a formular con PROLOG\n\n\n\n\nPROLOG\n\n\nVisualStudio\n\n\nBash\n\n\nLogica\n\n\n \n\n\n \n\n\n\n\nNo matching items"
+    "text": "Estas son las sesiones de prácticas, entra en cada una para ver las explicaciones, ejercicios e instrucciones paso a paso.\nRecuerda que después de completar la sesión deberás de realizar el test disponible en canvas.\n\n\n\n\n\n\n\n\n  \n\n\n\n\nEjercicios PROLOG I\n\n\nPráctica con ejercicios básicos de PROLOG\n\n\n\n\nPROLOG\n\n\nVisualStudio\n\n\nBash\n\n\nLogica\n\n\n \n\n\n \n\n\n\n\n  \n\n\n\n\nEjercicios PROLOG II\n\n\nPráctica con ejercicios avanzados de PROLOG\n\n\n\n\nPROLOG\n\n\nVisualStudio\n\n\nBash\n\n\nLogica\n\n\n \n\n\n \n\n\n\n\n  \n\n\n\n\nIntroducción a PROLOG\n\n\nAprende lo indispensable para trabajar con PROLOG\n\n\n\n\nPROLOG\n\n\nVisualStudio\n\n\nSistemas Expertos\n\n\nBash\n\n\n \n\n\n \n\n\n\n\n  \n\n\n\n\nSintaxis de PROLOG: Hechos y Reglas\n\n\nAprende a formular con PROLOG\n\n\n\n\nPROLOG\n\n\nVisualStudio\n\n\nBash\n\n\nLogica\n\n\n \n\n\n \n\n\n\n\nNo matching items"
   },
   {
     "objectID": "sesiones/01-intro/index.html",
@@ -341,5 +341,89 @@
     "title": "Ejercicios PROLOG I",
     "section": "Ejercicio 07",
     "text": "Ejercicio 07\nCrea un programa que represente la siguiente argumentación:\n\nSi X está arriba de Y y se tocan, entonces X está encima de Y .\nLa taza está arriba del libro.\nLa taza toca al libro."
+  },
+  {
+    "objectID": "sesiones/04-exercises_II/index.html",
+    "href": "sesiones/04-exercises_II/index.html",
+    "title": "Ejercicios PROLOG II",
+    "section": "",
+    "text": "Práctica realizando ejercicios más avanzados de PROLOG"
+  },
+  {
+    "objectID": "sesiones/04-exercises_II/index.html#objetivos-de-la-sesión",
+    "href": "sesiones/04-exercises_II/index.html#objetivos-de-la-sesión",
+    "title": "Ejercicios PROLOG II",
+    "section": "Objetivos de la sesión",
+    "text": "Objetivos de la sesión\n\nSaber formular y escribir código de PROLOG.\nDesarrollar la capacidad de resolución de problemas de PROLOG.\nTrabajar en problemas más complejos que requieren varios desarrollos."
+  },
+  {
+    "objectID": "sesiones/04-exercises_II/index.html#introducción",
+    "href": "sesiones/04-exercises_II/index.html#introducción",
+    "title": "Ejercicios PROLOG II",
+    "section": "Introducción",
+    "text": "Introducción\nEn esta sesión se te presentan diferentes ejercicios más complejos que requierirán desarrollos más extensos de programas comletos de PROLOG.\nEstos ejercicios supondrán el formato similar al que verás en la práctica final de la asignatura que combina este tipo de ejercicio con preguntas cortas similares a las vistas en la anterior sesión."
+  },
+  {
+    "objectID": "sesiones/04-exercises_II/index.html#ejercicio-01-animales",
+    "href": "sesiones/04-exercises_II/index.html#ejercicio-01-animales",
+    "title": "Ejercicios PROLOG II",
+    "section": "Ejercicio 01: Animales",
+    "text": "Ejercicio 01: Animales\nDeberás de desarrollar un sistema experto que tenga la cacapcidad de identificar animales en base a sus características proporcionadas. En concreto tenemos interés en identificar a 6 animales distintos: tigre, jirafa, cebra, avestruz, pingüino y albatros.\nLas reglas de razonamiento que usará nuestro sistema serán las siguientes:\n\nSi X tiene pelo y da leche, entonces es un mamífero.\nSi X tiene plumas, vuela y pone huevos, entonces es un ave.\nSi X es mamífero y come carne, entonces es un carnívoro.\nSi X es mamífero, tiene dientes agudos, tiene garras y tiene ojos que miran hacia delante, entonces es un carnívoro.\nSi X es un mamífero y tiene pezuñas, entonces es un ungulado.\nSi X es un mamífero y rumia, entonces es un ungulado.\nSi X es un carnívoro, de color leonado y tiene franjas negras, entonces es un tigre.\nSi X es ungulado, tiene patas largas, cuello largo, es de color leonado y tiene manchas oscuras, entonces es una jirafa.\nSi X es ungulado, de color blanco y con franjas negras, entonces es una cebra.\nSi X es un ave, no vuela, tiene patas largas, cuello largo y es blanca y negra, entonces es un avestruz.\nSi X es un ave, no vuela, nada, y es blanca y negra, entonces es un pingüino.\nSi X es un ave y nada muy bien, entonces es un albatros.\n\nPARTE A Para el siguiente conjunto de hechos sobre Luisa:\n\nLuisa tiene pelo y da leche.\nLuisa rumia.\nLuisa tiene patas largas.\nLuisa tiene cuello largo.\nLuisa es de color leonado.\nLuisa tiene manchas oscuras.\n\n¿Qué animal es Luisa? Razona a partir de las reglas que animal es. Después escribe los hechos y las reglas para poder confirmar de que animal se trata.\nPARTE B Para el siguiente conjunto de hechos sobre Felipe:\n\nFelipe tiene pelo y da leche.\nFelipe tiene dientes agudos, garras y ojos que miran hacia delante.\nFelipe tiene color leonado.\nFelipe tiene franjas negras.\n\n¿Qué animal es Felipe? Razona a partir de las reglas que animal es. Después escribe los hechos y las reglas para poder confirmar de que animal se trata."
+  },
+  {
+    "objectID": "sesiones/04-exercises_II/index.html#ejercicio-02",
+    "href": "sesiones/04-exercises_II/index.html#ejercicio-02",
+    "title": "Ejercicios PROLOG II",
+    "section": "Ejercicio 02:",
+    "text": "Ejercicio 02:"
+  },
+  {
+    "objectID": "sesiones/04-exercises_II/index.html#ejercicio-03-biblioteca",
+    "href": "sesiones/04-exercises_II/index.html#ejercicio-03-biblioteca",
+    "title": "Ejercicios PROLOG II",
+    "section": "Ejercicio 03: Biblioteca",
+    "text": "Ejercicio 03: Biblioteca\nHay que desarrollar un sistema experto para gestionar las autorizaciones de préstamo a los usuarios de libros y películas. Para ello necesitamos tener una base de conocimiento compuesta por:\n\nusuarios de la biblioteca\nlibros y películas disponibles en el catálogo.\nlibros y películas prestados y a qué usuario.\n\nPor otro lado necesitaremos definir el funcionamiento básico para poder prestar los libros: Como regla general no se prestára un libro o película a todo usuario que ya tenga un libro o película en préstamo, teniendo en cuenta que si solicita un libro y tiene una película en préstamo si se le concederá el préstamos al ser elementos distintos del catálogo de la biblioteca.\nTeniendo en cuenta que nuestra base de datos se compone de los siguientes hechos:\n\nMario, Carlota, Pablo, Elena y Paula son usuarios de la biblioteca.\n“Tirant Lo Blanch”, “El Quijote”, “Juego de Tronos”, “El Mundo Perdido”, “Los Juegos del Hambre”, “Robot Dreams”, “El Principito”, “Yo Robot” son libros.\n“El Mundo Perdido”, “Dinotopia”, “La Vida es Bella”, “Robot Dreams” son películas.\n\nPor otro lado, Mario tiene en préstamo el libro “El Quijote”, Elena tiene en préstamos la película “La Vida es Bella” y Paula tiene en prestámo tanto el libro como la película de “Robot Dreams”.\nConstruye la base de conocimiento con las reglas necesarias para poder confirmar si un usuario tiene derecho al préstamo de un elemento del catálogo.\nDeberá de ser capaz de…\n\nConceder un préstamo a Carlota del libro “Tirant lo Blanch”.\nConceder un préstamo a Mario de la película “Dinotopia”.\nDenegar un préstamo a Elena de la pleícula “La Vida es Bella”.\nDenegar un préstamo a Pablo del libro “Robot Dreams”\n\n\n\n\n\n\n\nLa cláusula not\n\n\n\nPara este ejercicio podrá resultarte útil usar la cláusula not que nos permitirá emular la negación habitual que usamos en lógica de primer orden."
+  },
+  {
+    "objectID": "sesiones/04-exercises_II/index.html#ejercicio-04-créditos",
+    "href": "sesiones/04-exercises_II/index.html#ejercicio-04-créditos",
+    "title": "Ejercicios PROLOG II",
+    "section": "Ejercicio 04: Créditos",
+    "text": "Ejercicio 04: Créditos"
+  },
+  {
+    "objectID": "sesiones/04-exercises_II/index.html#ejercicio-animales",
+    "href": "sesiones/04-exercises_II/index.html#ejercicio-animales",
+    "title": "Ejercicios PROLOG II",
+    "section": "Ejercicio: Animales",
+    "text": "Ejercicio: Animales\nDeberás de desarrollar un sistema experto que tenga la cacapcidad de identificar animales en base a sus características proporcionadas. En concreto tenemos interés en identificar a 6 animales distintos: tigre, jirafa, cebra, avestruz, pingüino y albatros.\nLas reglas de razonamiento que usará nuestro sistema serán las siguientes:\n\nSi X tiene pelo y da leche, entonces es un mamífero.\nSi X tiene plumas, vuela y pone huevos, entonces es un ave.\nSi X es mamífero y come carne, entonces es un carnívoro.\nSi X es mamífero, tiene dientes agudos, tiene garras y tiene ojos que miran hacia delante, entonces es un carnívoro.\nSi X es un mamífero y tiene pezuñas, entonces es un ungulado.\nSi X es un mamífero y rumia, entonces es un ungulado.\nSi X es un carnívoro, de color leonado y tiene franjas negras, entonces es un tigre.\nSi X es ungulado, tiene patas largas, cuello largo, es de color leonado y tiene manchas oscuras, entonces es una jirafa.\nSi X es ungulado, de color blanco y con franjas negras, entonces es una cebra.\nSi X es un ave, no vuela, tiene patas largas, cuello largo y es blanca y negra, entonces es un avestruz.\nSi X es un ave, no vuela, nada, y es blanca y negra, entonces es un pingüino.\nSi X es un ave y nada muy bien, entonces es un albatros.\n\nPARTE A Para el siguiente conjunto de hechos sobre Luisa:\n\nLuisa tiene pelo y da leche.\nLuisa rumia.\nLuisa tiene patas largas.\nLuisa tiene cuello largo.\nLuisa es de color leonado.\nLuisa tiene manchas oscuras.\n\n¿Qué animal es Luisa? Razona a partir de las reglas que animal es. Después escribe el programa con los hechos y las reglas para poder confirmar de que animal se trata.\nPARTE B Para el siguiente conjunto de hechos sobre Felipe:\n\nFelipe tiene pelo y da leche.\nFelipe tiene dientes agudos, garras y ojos que miran hacia delante.\nFelipe tiene color leonado.\nFelipe tiene franjas negras.\n\n¿Qué animal es Felipe? Razona a partir de las reglas que animal es. Después escribe el programa con los hechos y las reglas para poder confirmar de que animal se trata."
+  },
+  {
+    "objectID": "sesiones/04-exercises_II/index.html#ejercicio-biblioteca",
+    "href": "sesiones/04-exercises_II/index.html#ejercicio-biblioteca",
+    "title": "Ejercicios PROLOG II",
+    "section": "Ejercicio: Biblioteca",
+    "text": "Ejercicio: Biblioteca\nHay que desarrollar un sistema experto para gestionar las autorizaciones de préstamo a los usuarios de libros y películas. Para ello necesitamos tener una base de conocimiento compuesta por:\n\nusuarios de la biblioteca\nlibros y películas disponibles en el catálogo.\nlibros y películas prestados y a qué usuario.\n\nPor otro lado necesitaremos definir el funcionamiento básico para poder prestar los libros: Como regla general no se prestára un libro o película a todo usuario que ya tenga un libro o película en préstamo, teniendo en cuenta que si solicita un libro y tiene una película en préstamo si se le concederá el préstamos al ser elementos distintos del catálogo de la biblioteca.\nTeniendo en cuenta que nuestra base de datos se compone de los siguientes hechos:\n\nMario, Carlota, Pablo, Elena y Paula son usuarios de la biblioteca.\n“Tirant Lo Blanch”, “El Quijote”, “Juego de Tronos”, “El Mundo Perdido”, “Los Juegos del Hambre”, “Robot Dreams”, “El Principito”, “Yo Robot” son libros.\n“El Mundo Perdido”, “Dinotopia”, “La Vida es Bella”, “Robot Dreams” son películas.\n\nPor otro lado, Mario tiene en préstamo el libro “El Quijote”, Elena tiene en préstamos la película “La Vida es Bella” y Paula tiene en prestámo tanto el libro como la película de “Robot Dreams”.\nConstruye la base de conocimiento con las reglas necesarias para poder confirmar si un usuario tiene derecho al préstamo de un elemento del catálogo.\nDeberá de ser capaz de…\n\nConceder un préstamo a Carlota del libro “Tirant lo Blanch”.\nConceder un préstamo a Mario de la película “Dinotopia”.\nDenegar un préstamo a Elena de la película “La Vida es Bella”.\nDenegar un préstamo a Pablo del libro “Robot Dreams”\n\n\n\n\n\n\n\nLa cláusula not\n\n\n\nPara este ejercicio podrá resultarte útil usar la cláusula not que nos permitirá emular la negación habitual que usamos en lógica de primer orden.\nPor ejemplo si queremos demostrar que X no ama a Y sería not(ama(X,Y))"
+  },
+  {
+    "objectID": "sesiones/04-exercises_II/index.html#ejercicio-créditos",
+    "href": "sesiones/04-exercises_II/index.html#ejercicio-créditos",
+    "title": "Ejercicios PROLOG II",
+    "section": "Ejercicio: Créditos",
+    "text": "Ejercicio: Créditos"
+  },
+  {
+    "objectID": "sesiones/04-exercises_II/index.html#ejercicio-personas",
+    "href": "sesiones/04-exercises_II/index.html#ejercicio-personas",
+    "title": "Ejercicios PROLOG II",
+    "section": "Ejercicio: Personas",
+    "text": "Ejercicio: Personas\nElabora un programa de PROLOG con los siguientes enunciados:\n\nLucía es una mujer.\nLucas es un hombre.\nLucas es saludable.\nLucía es saludable.\nLucas es rico.\nCualquiera es un viajero si es saludable y rico.\nCualquiera puede viajar si es un viajero.\n\nTu programa deberá de ser capaz de encontrar las siguientes soluciones:\n\n¿Quién puede viajar?\n¿Quién es saludable y rico?"
+  },
+  {
+    "objectID": "sesiones/04-exercises_II/index.html#ejercicio-familia",
+    "href": "sesiones/04-exercises_II/index.html#ejercicio-familia",
+    "title": "Ejercicios PROLOG II",
+    "section": "Ejercicio: Familia",
+    "text": "Ejercicio: Familia\nDefine los siguientes predicados:\n\nhermanos(X,Y) que expresa que dos personas son hermanos.\nprimos(X,Y) que expresa que dos personas son primos.\nnieto(X,Y) que expresa que X es nieto de Y.\ndescendiente(X,Y) que expresa que X es desciente de Y.\n\nDada la siguiente base de hechos:\npadre(a,b).\npadre(a,c).\npadre(b,d).\npadre(b,e).\npadre(c,f).\nQue define el siguiente árbol familiar:\n\n\n\n\n\n   \n\na\n\n a   \n\nb\n\n b   \n\na–b\n\n   \n\nc\n\n c   \n\na–c\n\n   \n\nd\n\n d   \n\nb–d\n\n   \n\ne\n\n e   \n\nb–e\n\n   \n\nf\n\n f   \n\nc–f\n\n  \n\n\n\n\n\nDesarrolla los predicados anteriores para poder definir de forma correcta las relaciones usando los hechos disponibles."
   }
 ]
