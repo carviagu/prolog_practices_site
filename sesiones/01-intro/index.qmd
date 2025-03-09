@@ -94,6 +94,8 @@ Tienes que tener en cuenta que si vien estas ejecutando una terminal de SWI PROL
 
 Por defecto cuando ejecutamos y abrimos PROLOG este lee desde nuestra carpeta raíz, la de nuestro usuario.
 
+Fijate, que la instrucción sigue la sintaxis que ya hemos visto `<nombre_comando>.` . Prueba a escribir el comando `pwd` sin el punto. ¿Qué pasa? El cursor parece que sigue esperando que le des más información. Hasta que no termines con un `.` PROLOG no entenderá que has terminado de dar la instrucción y seguirá esperando a que entres más instrucciones en la terminal. 
+
 ### Conocer el contenido del directorio con `ls.`
 
 Ahora que sabes donde estas, vamos a investigar que contiene el directorio donde nos encontramos. Para ello puedes ejecutar el comando `ls.`
@@ -110,8 +112,8 @@ Como ves te encuentras en el directorio raíz de PROLOG, la carpeta por defecto 
 
 Para poder navegar y movernos entre carpetas de nuestro ordenador podemos usar el comando `cd(<dirección>).`, por ejemplo..
 
--   `cd('..')` me llevará al directorio padre.
--   Las rutas, para windows:  `cd('C:/Users/carviagu/Documents/pract_prolog')` o para mac: `cd(/Users/carviagu/Documents/pract_prolog)`,me llevarán a la carpeta `pract_prolog` localizada en Documentos, pues es lo que le indico dentro de la función.
+-   `cd('..').` me llevará al directorio padre.
+-   Las rutas, para windows:  `cd('C:/Users/carviagu/Documents/pract_prolog').` o para mac: `cd(/Users/carviagu/Documents/pract_prolog).`,me llevarán a la carpeta `pract_prolog` localizada en Documentos, pues es lo que le indico dentro de la función.
 
 Ten cuidado con las direcciones, si te fijas verás que las barras `/` pueden estar en una orientación distinta a la de otros sistemas operativos, por ejemplo en Windows son al revés y deberás de cambiarlas cuando se lo escribas a PROLOG.
 

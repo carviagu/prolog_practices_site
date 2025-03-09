@@ -228,6 +228,7 @@ Instalación
 <p>El primer comando que vamos a usar es <code>pwd.</code> Puedes escribirlo y presionar enter. Verás que PROLOG te devuelve una dirección, que es donde te encuentras ahora mismo y finalmente un <code>true</code>. Ahora mismo ese <code>true</code> no nos aporta nada más que indicarnos que la ejecución a terminado correctamente. Pero esta respuesta es una de las claves del lenguaje lógico con el que estamos trabajando y que explicaremos más adelante.</p>
 <p>Tienes que tener en cuenta que si vien estas ejecutando una terminal de SWI PROLOG, estas trabajando en tu ordenador y al igual que harías con una terminal normal de tu ordenador, esta te permite navegar por tu ordenador.</p>
 <p>Por defecto cuando ejecutamos y abrimos PROLOG este lee desde nuestra carpeta raíz, la de nuestro usuario.</p>
+<p>Fijate, que la instrucción sigue la sintaxis que ya hemos visto <code>&lt;nombre_comando&gt;.</code> . Prueba a escribir el comando <code>pwd</code> sin el punto. ¿Qué pasa? El cursor parece que sigue esperando que le des más información. Hasta que no termines con un <code>.</code> PROLOG no entenderá que has terminado de dar la instrucción y seguirá esperando a que entres más instrucciones en la terminal.</p>
 </section>
 <section id="conocer-el-contenido-del-directorio-con-ls." class="level3">
 <h3 class="anchored" data-anchor-id="conocer-el-contenido-del-directorio-con-ls.">Conocer el contenido del directorio con <code>ls.</code></h3>
@@ -241,8 +242,8 @@ Instalación
 <p>Como ves te encuentras en el directorio raíz de PROLOG, la carpeta por defecto creada por el sistema. Pero… ¿y si quiero cambiarme de sitio?.</p>
 <p>Para poder navegar y movernos entre carpetas de nuestro ordenador podemos usar el comando <code>cd(&lt;dirección&gt;).</code>, por ejemplo..</p>
 <ul>
-<li><code>cd('..')</code> me llevará al directorio padre.</li>
-<li>Las rutas, para windows: <code>cd('C:/Users/carviagu/Documents/pract_prolog')</code> o para mac: <code>cd(/Users/carviagu/Documents/pract_prolog)</code>,me llevarán a la carpeta <code>pract_prolog</code> localizada en Documentos, pues es lo que le indico dentro de la función.</li>
+<li><code>cd('..').</code> me llevará al directorio padre.</li>
+<li>Las rutas, para windows: <code>cd('C:/Users/carviagu/Documents/pract_prolog').</code> o para mac: <code>cd(/Users/carviagu/Documents/pract_prolog).</code>,me llevarán a la carpeta <code>pract_prolog</code> localizada en Documentos, pues es lo que le indico dentro de la función.</li>
 </ul>
 <p>Ten cuidado con las direcciones, si te fijas verás que las barras <code>/</code> pueden estar en una orientación distinta a la de otros sistemas operativos, por ejemplo en Windows son al revés y deberás de cambiarlas cuando se lo escribas a PROLOG.</p>
 <p>Intenta llegar al escritorio desde el directorio raiz usado el comando <code>cd().</code> <em>Nota:</em> Desde tu carpeta usuario (la que se abre por defecto cuando inicias PROLOG) verás que hay una carpeta llamada <code>Desktop</code> o <code>Escritorio</code> mediante la cual puedes llegar.</p>
