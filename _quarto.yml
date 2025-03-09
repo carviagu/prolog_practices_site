@@ -6,18 +6,14 @@ website:
     title: "Lógica Matemática"
     page-footer: 
       background: light
-      left: 2024 Carviagu. Powered with [Quarto](https://quarto.org/) and [GitHub](https://pages.github.com/)
+      left: 2025 Carviagu. Powered with [Quarto](https://quarto.org/) and [GitHub](https://pages.github.com/)
       right: |
         [![](resources/images/logo2.png){fig-alt="CUNEF" width=65px}](https://cunef.edu)
         
     navbar:
       background: light
       title: false
-      left:
-        - href: index.qmd
-          text: Home
-        - href: units.qmd
-          text: Sesiones
+      
 
 format:
   html:
