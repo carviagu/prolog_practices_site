@@ -3,7 +3,7 @@ project:
   output-dir: docs
   
 website:
-    title: "Lógica Matemática"
+    title: "Prácticas Lógica Matemática: PROLOG"
     page-footer: 
       background: light
       left: 2025 Carviagu. Powered with [Quarto](https://quarto.org/) and [GitHub](https://pages.github.com/)
@@ -11,6 +11,7 @@ website:
         [![](resources/images/logo2.png){fig-alt="CUNEF" width=65px}](https://cunef.edu)
         
     navbar:
+      search: false
       background: light
       title: false
       
