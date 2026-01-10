@@ -160,8 +160,10 @@ window.Quarto = {
   <li><a href="#bases-de-conocimiento" id="toc-bases-de-conocimiento" class="nav-link" data-scroll-target="#bases-de-conocimiento">Bases de Conocimiento</a></li>
   <li><a href="#desarrollo-de-bases-de-conocimiento-friends" id="toc-desarrollo-de-bases-de-conocimiento-friends" class="nav-link" data-scroll-target="#desarrollo-de-bases-de-conocimiento-friends">Desarrollo de Bases de Conocimiento: Friends</a>
   <ul class="collapse">
-  <li><a href="#creando-mi-primera-base-de-conocimiento" id="toc-creando-mi-primera-base-de-conocimiento" class="nav-link" data-scroll-target="#creando-mi-primera-base-de-conocimiento">Creando mi primera base de conocimiento</a></li>
+  <li><a href="#hechos-facts" id="toc-hechos-facts" class="nav-link" data-scroll-target="#hechos-facts">Hechos (Facts)</a></li>
   <li><a href="#cargando-el-programa-en-prolog" id="toc-cargando-el-programa-en-prolog" class="nav-link" data-scroll-target="#cargando-el-programa-en-prolog">Cargando el programa en PROLOG</a></li>
+  <li><a href="#reglas-rules" id="toc-reglas-rules" class="nav-link" data-scroll-target="#reglas-rules">Reglas (Rules)</a></li>
+  <li><a href="#el-programa-friends.pl" id="toc-el-programa-friends.pl" class="nav-link" data-scroll-target="#el-programa-friends.pl">El programa friends.pl</a></li>
   <li><a href="#preguntando-a-prolog" id="toc-preguntando-a-prolog" class="nav-link" data-scroll-target="#preguntando-a-prolog">Preguntando a PROLOG</a></li>
   </ul></li>
   <li><a href="#trazas-y-depuración-en-prolog" id="toc-trazas-y-depuración-en-prolog" class="nav-link" data-scroll-target="#trazas-y-depuración-en-prolog">Trazas y depuración en PROLOG</a></li>
@@ -235,10 +237,20 @@ window.Quarto = {
 <section id="desarrollo-de-bases-de-conocimiento-friends" class="level2">
 <h2 class="anchored" data-anchor-id="desarrollo-de-bases-de-conocimiento-friends">Desarrollo de Bases de Conocimiento: Friends</h2>
 <p>A partir del primer problema vamos a desarrollar la base de conocimiento que necesitamos para poder llevarlo a cabo. Para después probarla y cargarla en PROLOG.</p>
-<section id="creando-mi-primera-base-de-conocimiento" class="level3">
-<h3 class="anchored" data-anchor-id="creando-mi-primera-base-de-conocimiento">Creando mi primera base de conocimiento</h3>
 <p>Las bases de conocimiento o programas de PROLOG se definen escribiendo el código en un fichero de PROLOG, los ficheros de PROLOG tienen la extensión <code>.pl</code> (Esto es algo similar a otros lenguajes de programación como Java donde los ficheros tienen la extensión <code>.java</code>)</p>
-<p>Fuera de la terminal de PROLOG, ve a tu escritorio y crea una carpeta llamada <code>pract_prolog</code>, en esa carpeta crea un nuevo archivo llamado <code>friends.pl</code> (Puedes crear un archivo de texto y renombrarlo cambiando la extensión).</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Práctica: Parte 1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Fuera de la terminal de PROLOG, ve a tu escritorio y en la carpeta llamada <code>prolog_labs</code> (que creamos en la sesión anterior), crea un nuevo archivo llamado <code>friends.pl</code> (Puedes crear un archivo de texto y renombrarlo cambiando la extensión).</p>
+</div>
+</div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -254,7 +266,19 @@ Trabajando con extensiones
 </div>
 </div>
 <p>Una vez creado ya puedes abrir el fichero para editarlo, como vamos a editar código lo ideal sería utilizar un editor de código. En la prácticas puedes usar el que consideres más opoturno, pero si no sabes cual usar puedes abrir el archivo con Visual Studio Code.</p>
-<p>Pasa el ratón por encima dale a click derecho y seleccionar <strong>Abrir con</strong>, busca entre los programas disponibles Visual Studio Code, verás que tiene un icono azul.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Práctica: Parte 2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Abre usando visual studio code el archivo <code>friends.pl</code> que creaste anteriormente. Pasa el ratón por encima dale a click derecho y seleccionar <strong>Abrir con</strong>, busca entre los programas disponibles Visual Studio Code, verás que tiene un icono azul.</p>
+</div>
+</div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -274,23 +298,61 @@ Trabajando con Visual Studio Code
 <p>Ve al anexo para más información de uso de Visual Studio Code con PROLOG.</p>
 </div>
 </div>
-<section id="facts" class="level4">
-<h4 class="anchored" data-anchor-id="facts">Facts</h4>
+<section id="hechos-facts" class="level3">
+<h3 class="anchored" data-anchor-id="hechos-facts">Hechos (Facts)</h3>
 <p>Primero necesitamos definir los hechos, estos serán la base esencial del conocimiento que tiene PROLOG, las verdades universales que usará para fundamentar sus respuestas.</p>
 <p>Los hechos son estructuras que vienen expresadas como…</p>
 <pre><code>nombre_predicado(nombre_1, ..., nombre_n).</code></pre>
 <p>Donde asignaremos un nombre del predicado y luego nombres de los individuos o varaibles que intervienen en esa verdad.</p>
-<p>Para nuestro ejemplo el primer hecho que establecimos fue que Mónica ama a Chandler, esto se expresa como</p>
+<p>Para nuestro ejemplo el primer hecho que establecimos fue que Mónica ama a Chandler, esto se expresa como:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode prolog code-with-copy"><code class="sourceCode prolog"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ama(monica<span class="kw">,</span> chandler)<span class="kw">.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Ahora a ese hecho incorporar dos nuevos hechos…</p>
+<p>Incorpora este hecho a tu archivo <code>friends.pl</code> como aparece aquí:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode prolog code-with-copy"><code class="sourceCode prolog"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">% Facts</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>ama(monica<span class="kw">,</span> chandler)<span class="kw">.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Práctica: Parte 3
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>En el archivo <code>friends.pl</code>. Ahora a ese hecho que acabas de añadir, incorpora dos nuevos hechos…</p>
 <ul>
 <li>Chandler ama a Mónica</li>
 <li>Joey ama a Rachel</li>
 </ul>
+<p>Recuerda hacerso siguiendo la sintaxis que hemos definido. Cuando termines no olvides guardar.</p>
+</div>
+</div>
 </section>
-<section id="rules" class="level4">
-<h4 class="anchored" data-anchor-id="rules">Rules</h4>
-<p>Una vez tenemos nuestros hechos necesitamos dar a PROLOG unas reglas básicas para razonamiento.</p>
+<section id="cargando-el-programa-en-prolog" class="level3">
+<h3 class="anchored" data-anchor-id="cargando-el-programa-en-prolog">Cargando el programa en PROLOG</h3>
+<p>Ahora que tenemos una primera versión del programa de PROLOG terminado podemos de cargarlo en la base de conocimiento de PROLOG para que podamos hacerle preguntas al respecto.</p>
+<p>Para esta parte es recomendable que, desde la consola, cambies de directorio a la carpeta que has creado en el apartado anterior donde está el archivo <code>friends.pl</code>. Recuerda que puedes usar el comando <code>cd().</code> para moverte en la terminal.</p>
+<p>Una vez estes en la carpeta donde se encuentra tu programa basta con ejecutar el comando <code>['nombre_archivo.pl'].</code>En nuestro caso</p>
+<pre><code>?- ['friends.pl'].</code></pre>
+<p>Una vez hecho esto PROLOG cargará en su memoria todos los hechos y reglas enunciados. Si más adelante cambiamos algo del código, bastará con volverlo a cargar.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Práctica: Parte 4
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Vamos a probar que nuestro programa funciona bien. Ahora que ya le hemos cargado a Prolog el conocimiento podemos preguntarle usando la misma sintaxis.</p>
+<p>La pregunta que nos hicimos era: <em>¿Ama Mónica a Chandler?</em>. Usando la sintaxis correspondiente preguntaselo a Prolog en la consola. ¿Qué devuelve ahora? Prueba a preguntarle si Rachel ama a Joey. ¿Qué responde? ¿Por qué?</p>
+</div>
+</div>
+</section>
+<section id="reglas-rules" class="level3">
+<h3 class="anchored" data-anchor-id="reglas-rules">Reglas (Rules)</h3>
+<p>Vamos a volver a nuestro programa en <code>friends.pl</code> Una vez tenemos nuestros hechos necesitamos dar a PROLOG unas reglas básicas para razonamiento. Las reglas nos permiten introducir razonamientos mediante los cuales Prolog a partir de los hechos puede inferir la respuesta.</p>
 <p>Las primera de las reglas que vamos a establecer es “Dos personas salen si se aman mutuamente”.</p>
 <p>Podemos representar esta regla en lenguaje de primer orden como como… <span class="math inline">\(\forall x \forall y  (ama(x,y) \land ama(y,x) \to sale(x,y))\)</span></p>
 <p>Nos referimos a todos los inviduos por lo que usamos dos cuantificadores universales, y dos predicados:</p>
@@ -299,7 +361,7 @@ Trabajando con Visual Studio Code
 <li>el segundo que es que estamos definiendo <code>sale(x,y)</code> que es la consecuencia de que dos personas se amen.</li>
 </ul>
 <p>Para poder codificarlo en PROLOG podemos hacerlo de la siguiente forma:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode prolog code-with-copy"><code class="sourceCode prolog"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>sale(<span class="dt">X</span><span class="kw">,</span><span class="dt">Y</span>)<span class="kw">:-</span> ama(<span class="dt">X</span><span class="kw">,</span><span class="dt">Y</span>)<span class="kw">,</span> ama(<span class="dt">Y</span><span class="kw">,</span><span class="dt">X</span>)<span class="kw">.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode prolog code-with-copy"><code class="sourceCode prolog"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>sale(<span class="dt">X</span><span class="kw">,</span><span class="dt">Y</span>)<span class="kw">:-</span> ama(<span class="dt">X</span><span class="kw">,</span><span class="dt">Y</span>)<span class="kw">,</span> ama(<span class="dt">Y</span><span class="kw">,</span><span class="dt">X</span>)<span class="kw">.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Fijaos que no necesitamos expresar cuantificadores, y que además hemos invertido la formula de primer orden.</p>
 <p>Estamos expresando que sale(x,y) es el resultado de que dos personas se amen. A la hora de representarlo:</p>
 <ul>
@@ -308,41 +370,60 @@ Trabajando con Visual Studio Code
 <li>la disyunción <span class="math inline">\(\lor\)</span> se expresaría con <code>;</code></li>
 </ul>
 <p>Por otro lado en este caso hacemos uso de variables (X, Y) y no de estructuras como en los hechos. Esto es ya que ahora estamos definiendo reglas, PROLOG entiende que esas variables tendran un valor que definirá el usuario y el lo aplicará a la regla usando los hechos.</p>
-<p>Ahora prueba definir una nueva regla: “Dos personas son amigos si almenos uno de ellos ama a el otro.”</p>
+<p>Incorpora esta regla a tu archivo <code>friends.pl</code> como aparece aquí. Debe de estar después de los hechos definidos:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode prolog code-with-copy"><code class="sourceCode prolog"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">% Rules</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>sale(<span class="dt">X</span><span class="kw">,</span><span class="dt">Y</span>)<span class="kw">:-</span> ama(<span class="dt">X</span><span class="kw">,</span><span class="dt">Y</span>)<span class="kw">,</span> ama(<span class="dt">Y</span><span class="kw">,</span><span class="dt">X</span>)<span class="kw">.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Práctica: Parte 5
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>En el archivo <code>friends.pl</code>.</p>
+<p>Ahora prueba definir una nueva regla:</p>
+<p>“Dos personas son amigos si almenos uno de ellos ama a el otro.”</p>
+<p>Recuerda hacerso siguiendo la sintaxis que hemos definido. Puedes ayudarte escribiéndola en Lógica de Primer Orden para después pasarlo a código como hemos hecho en el ejemplo. Cuando termines no olvides guardar.</p>
+</div>
+</div>
 </section>
-<section id="el-programa-friends.pl" class="level4">
-<h4 class="anchored" data-anchor-id="el-programa-friends.pl">El programa friends.pl</h4>
+<section id="el-programa-friends.pl" class="level3">
+<h3 class="anchored" data-anchor-id="el-programa-friends.pl">El programa friends.pl</h3>
 <p>Cuando termines deberas de tener ya un programa completo de PROLOG definido en tu archivo <code>friends.pl</code>. El programa debería de quedar como sigue:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode prolog code-with-copy"><code class="sourceCode prolog"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">% Friends program</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">% Facts</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>ama(monica<span class="kw">,</span> chandler)<span class="kw">.</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>ama(chandler<span class="kw">,</span> monica)<span class="kw">.</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>ama(joey<span class="kw">,</span> rachel)<span class="kw">.</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">% Rules</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>sale(<span class="dt">X</span><span class="kw">,</span><span class="dt">Y</span>)<span class="kw">:-</span> ama(<span class="dt">X</span><span class="kw">,</span><span class="dt">Y</span>)<span class="kw">,</span> ama(<span class="dt">Y</span><span class="kw">,</span><span class="dt">X</span>)<span class="kw">.</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>amigos(<span class="dt">X</span><span class="kw">,</span><span class="dt">Y</span>)<span class="kw">:-</span> ama(<span class="dt">X</span><span class="kw">,</span><span class="dt">Y</span>)<span class="kw">;</span> ama(<span class="dt">Y</span><span class="kw">,</span><span class="dt">X</span>)<span class="kw">.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode prolog code-with-copy"><code class="sourceCode prolog"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">% Friends program</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">% Facts</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>ama(monica<span class="kw">,</span> chandler)<span class="kw">.</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>ama(chandler<span class="kw">,</span> monica)<span class="kw">.</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>ama(joey<span class="kw">,</span> rachel)<span class="kw">.</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co">% Rules</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>sale(<span class="dt">X</span><span class="kw">,</span><span class="dt">Y</span>)<span class="kw">:-</span> ama(<span class="dt">X</span><span class="kw">,</span><span class="dt">Y</span>)<span class="kw">,</span> ama(<span class="dt">Y</span><span class="kw">,</span><span class="dt">X</span>)<span class="kw">.</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>amigos(<span class="dt">X</span><span class="kw">,</span><span class="dt">Y</span>)<span class="kw">:-</span> ama(<span class="dt">X</span><span class="kw">,</span><span class="dt">Y</span>)<span class="kw">;</span> ama(<span class="dt">Y</span><span class="kw">,</span><span class="dt">X</span>)<span class="kw">.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Para la parte de hechos, hemos añadido que tanto Mónica como Chandler se aman mutuamente y que además Joey ama a Rachel. Después de cada hecho hay que añadir el <code>.</code> final de los comandos de PROLOG.</p>
 <p>Y en las reglas hemos definido la segunda regla como <span class="math inline">\(\forall x \forall y  (ama(x,y) \lor ama(y,x) \to amigos(x,y))\)</span> en lenguaje PROLOG.</p>
 <p>Es muy importante seguir el orden: primero los Hechos y segundo las Reglas. Esto pues las reglas se fundamentan en los hechos, pero además podemos enunciar reglas basadas en otras reglas, en este segundo caso deben de seguir el orden de dependencia.</p>
 <p><strong>IMPORTANTE!</strong> Guarda el archivo antes de cerrarlo.</p>
 </section>
-</section>
-<section id="cargando-el-programa-en-prolog" class="level3">
-<h3 class="anchored" data-anchor-id="cargando-el-programa-en-prolog">Cargando el programa en PROLOG</h3>
-<p>Una vez tienes tu programa de PROLOG terminado debemos de cargarlo en la base de conocimiento de PROLOG para que podamos hacerle preguntas al respecto.</p>
-<p>Para esta parte es recomendable que, desde la consola, cambies de directorio a la carpeta que has creado en el apartado anterior donde está el archivo <code>friends.pl</code>. Recuerda que puedes usar el comando <code>cd().</code> para moverte en la terminal.</p>
-<p>Una vez estes en la carpeta donde se encuentra tu programa basta con ejecutar el comando <code>['nombre_archivo.pl'].</code>En nuestro caso</p>
-<pre><code>?- ['friends.pl'].</code></pre>
-<p>Una vez hecho esto PROLOG cargará en su memoria todos los hechos y reglas enunciados. Si más adelante cambiamos algo del código, bastará con volverlo a cargar.</p>
-</section>
 <section id="preguntando-a-prolog" class="level3">
 <h3 class="anchored" data-anchor-id="preguntando-a-prolog">Preguntando a PROLOG</h3>
-<p>Ahora que ya tienes cargada la base de conocimiento friends, puedes preguntar a PROLOG.</p>
+<p>Después de guardar el archivo, cárgalo de nuevo en PROLOG de igual forma que hiciste antes. Verás que Prolog analiza los cambios y los aplica a su base de conocimiento.</p>
+<p>Ahora que ya tienes cargada la base de conocimiento friends, puedes preguntar a PROLOG usando la misma sintaxis y el responderá usando los hechos y reglas definidos.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Práctica: Parte 6
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Prueba la siguientes preguntas:</p>
 <ul>
-<li>¿Ama Mónica a Chandler?</li>
 <li>¿Ama Phoebe a Chandler?</li>
 <li>¿Sale Mónica con Chandler?</li>
 <li>¿Sale Chandler con Mónica?</li>
@@ -350,9 +431,21 @@ Trabajando con Visual Studio Code
 <li>¿Son Mónica y Chandler amigos?</li>
 <li>¿Son Gunter y Chandler amigos?</li>
 </ul>
-<p>¿Qué te devuelve en cada caso? Recuerda que debes de usar la sintaxis que has diseñado para Prolog. Por ejemplo, la primera pregunta sería <code>ama(monica,chandler).</code></p>
+<p>¿Qué te devuelve en cada caso? Recuerda que debes de usar la sintaxis que has diseñado para Prolog.</p>
+</div>
+</div>
 <p>Por otro lado puedes hacer preguntas más genéricas y PROLOG intentará deducir la respuesta a partir de las reglas y la base de conocimiento. Por ejemplo, ¿a quién ama Mónica?</p>
 <p>Basta con escribir <code>ama(monica,X).</code>, de esta forma PROLOG nos dirá que valor puede tomar X.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Práctica: Parte 7
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Intenta responder a las siguientes preguntas:</p>
 <ul>
 <li>¿Con quién sale Chandler?</li>
@@ -360,6 +453,8 @@ Trabajando con Visual Studio Code
 <li>¿De quién es amigo Joey?</li>
 </ul>
 <p>Ahora prueba a escribir <code>salen(X,Y).</code> o <code>salen(X,X).</code>. ¿Qué pasa?</p>
+</div>
+</div>
 </section>
 </section>
 <section id="trazas-y-depuración-en-prolog" class="level2">
@@ -368,9 +463,42 @@ Trabajando con Visual Studio Code
 <p>Prolog ya está creado para razonar usando la lógica, nosotros solo establecemos las reglas que deben de seguirse y las premisas de conocimiento. Para saber si el razonamiento creado es correcto podemos querer estudiar paso a paso que argumentos sigue Prolog en la generación de su respuesta.</p>
 <p>Para ello podemos activar la depuración (<em>debugging</em>), esta nos mostrará los pasos que se han seguido para dar repuesta.</p>
 <p>Escribe el siguiente comando en la terminal:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">?-</span> trace.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">?-</span> trace.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Ahora se habrá activado la función de depuración y Prolog devolverá la traza seguida para determinar la respuesta. Una vez ejecutada la pregunta, sigue presionando enter cada vez para que Prolog devuelva una a uno a uno los pasos. Prueba las preguntas anteriores y analiza que traza devuelve.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Práctica: Parte 8
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Prueba a preguntar a Prolog las siguientes preguntas y entiende como funcionan las trazas que explican el proceso de inferencia.</p>
+<ul>
+<li>¿Ama Mónica a Chandler?</li>
+<li>¿Sale Mónica con Chandler?</li>
+<li>¿Sale Rachel con Joey?</li>
+<li>¿A quién ama Mónica?</li>
+</ul>
+</div>
+</div>
 <p>Para salir del modo depuración escibre el comando <code>notrace.</code> y luego <code>nodebug.</code>, volverá la terminal al funcionamiento original.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Inferencia
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Lo que acabamos de ver es la capacidad de Inferencia de Prolog. Prolog se basa en el conocimiento que le proporcionamos para “razonar” y tratar de responder a preguntas.</p>
+<p>Cuando usamos el modo de trazas podemos ver que pasos sigue el motor de inferencia de Prolog para obtener la respuesta.</p>
+</div>
+</div>
 </section>
 <section id="ejercicio-práctico" class="level2">
 <h2 class="anchored" data-anchor-id="ejercicio-práctico">Ejercicio Práctico</h2>

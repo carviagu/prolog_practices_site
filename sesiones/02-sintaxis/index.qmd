@@ -49,11 +49,14 @@ Es esencial que la base de conocimiento de nuestro programa sea acorde con el ob
 
 A partir del primer problema vamos a desarrollar la base de conocimiento que necesitamos para poder llevarlo a cabo. Para después probarla y cargarla en PROLOG. 
 
-### Creando mi primera base de conocimiento
-
 Las bases de conocimiento o programas de PROLOG se definen escribiendo el código en un fichero de PROLOG, los ficheros de PROLOG tienen la extensión `.pl` (Esto es algo similar a otros lenguajes de programación como Java donde los ficheros tienen la extensión `.java`)
 
-Fuera de la terminal de PROLOG, ve a tu escritorio y crea una carpeta llamada `pract_prolog`, en esa carpeta crea un nuevo archivo llamado `friends.pl` (Puedes crear un archivo de texto y renombrarlo cambiando la extensión).
+::: callout-caution
+## Práctica: Parte 1
+
+Fuera de la terminal de PROLOG, ve a tu escritorio y en la carpeta llamada `prolog_labs` (que creamos en la sesión anterior), crea un nuevo archivo llamado `friends.pl` (Puedes crear un archivo de texto y renombrarlo cambiando la extensión).
+
+:::
 
 ::: callout-note
 ## Trabajando con extensiones
@@ -65,9 +68,17 @@ Si nunca has manejado las extensiones de los archivos, son las siglas que acompa
 
 Una vez creado ya puedes abrir el fichero para editarlo, como vamos a editar código lo ideal sería utilizar un editor de código. En la prácticas puedes usar el que consideres más opoturno, pero si no sabes cual usar puedes abrir el archivo con Visual Studio Code. 
 
+::: callout-caution
+## Práctica: Parte 2
+
+Abre usando visual studio code el archivo `friends.pl` que creaste anteriormente.
 Pasa el ratón por encima dale a click derecho y seleccionar **Abrir con**, busca entre los programas disponibles Visual Studio Code, verás que tiene un icono azul. 
 
+:::
+
+
 ::: callout-note
+
 ## Trabajando con Visual Studio Code
 
 Visual Studio Code es un editor de código totalmente gratuito de miscrosoft (a diferencia de Visual Studio Community que es un entorno más avanzado pero que requiere de licencia). 
@@ -85,7 +96,7 @@ También puedes usar la extensión de Prolog disponible para adquirir en la work
 Ve al anexo para más información de uso de Visual Studio Code con PROLOG. 
 ::: 
 
-#### Facts
+### Hechos (Facts)
 Primero necesitamos definir los hechos, estos serán la base esencial del conocimiento que tiene PROLOG, las verdades universales que usará para fundamentar sus respuestas. 
 
 Los hechos son estructuras que vienen expresadas como...
@@ -96,18 +107,55 @@ nombre_predicado(nombre_1, ..., nombre_n).
 
 Donde asignaremos un nombre del predicado y luego nombres de los individuos o varaibles que intervienen en esa verdad.
 
-Para nuestro ejemplo el primer hecho que establecimos fue que Mónica ama a Chandler, esto se expresa como
+Para nuestro ejemplo el primer hecho que establecimos fue que Mónica ama a Chandler, esto se expresa como:
 
 ```prolog
 ama(monica, chandler).
 ```
-Ahora a ese hecho incorporar dos nuevos hechos...
+
+Incorpora este hecho a tu archivo `friends.pl` como aparece aquí: 
+
+```prolog
+% Facts
+ama(monica, chandler).
+```
+
+::: callout-caution
+## Práctica: Parte 3
+
+En el archivo `friends.pl`. 
+Ahora a ese hecho que acabas de añadir, incorpora dos nuevos hechos...
 
 * Chandler ama a Mónica
 * Joey ama a Rachel
 
-#### Rules
-Una vez tenemos nuestros hechos necesitamos dar a PROLOG unas reglas básicas para razonamiento. 
+Recuerda hacerso siguiendo la sintaxis que hemos definido. Cuando termines no olvides guardar. 
+:::
+
+###  Cargando el programa en PROLOG
+Ahora que tenemos una primera versión del programa de PROLOG terminado podemos de cargarlo en la base de conocimiento de PROLOG para que podamos hacerle preguntas al respecto. 
+
+Para esta parte es recomendable que, desde la consola, cambies de directorio a la carpeta que has creado en el apartado anterior donde está el archivo `friends.pl`. Recuerda que puedes usar el comando `cd().` para moverte en la terminal. 
+
+Una vez estes en la carpeta donde se encuentra tu programa basta con ejecutar el comando `['nombre_archivo.pl'].`En nuestro caso 
+
+```
+?- ['friends.pl'].
+```
+
+Una vez hecho esto PROLOG cargará en su memoria todos los hechos y reglas enunciados. Si más adelante cambiamos algo del código, bastará con volverlo a cargar. 
+
+::: callout-caution
+## Práctica: Parte 4
+
+Vamos a probar que nuestro programa funciona bien. Ahora que ya le hemos cargado a Prolog el conocimiento podemos preguntarle usando la misma sintaxis. 
+
+La pregunta que nos hicimos era: *¿Ama Mónica a Chandler?*. Usando la sintaxis correspondiente preguntaselo a Prolog en la consola. ¿Qué devuelve ahora? Prueba a preguntarle si Rachel ama a Joey. ¿Qué responde? ¿Por qué?
+
+:::
+
+### Reglas (Rules)
+Vamos a volver a nuestro programa en `friends.pl` Una vez tenemos nuestros hechos necesitamos dar a PROLOG unas reglas básicas para razonamiento. Las reglas nos permiten introducir razonamientos mediante los cuales Prolog a partir de los hechos puede inferir la respuesta. 
 
 Las primera de las reglas que vamos a establecer es "Dos personas salen si se aman mutuamente".
 
@@ -132,12 +180,31 @@ Estamos expresando que sale(x,y) es el resultado de que dos personas se amen. A 
  * la conjunción $\land$ se expresa con `,`
  * la disyunción $\lor$ se expresaría con `;`
 
-Por otro lado en este caso hacemos uso de variables (X, Y) y no de estructuras como en los hechos. Esto es ya que ahora estamos definiendo reglas, PROLOG entiende que esas variables tendran un valor que definirá el usuario y el lo aplicará a la regla usando los hechos. 
+Por otro lado en este caso hacemos uso de variables (X, Y) y no de estructuras como en los hechos. Esto es ya que ahora estamos definiendo reglas, PROLOG entiende que esas variables tendran un valor que definirá el usuario y el lo aplicará a la regla usando los hechos.
 
-Ahora prueba definir una nueva regla: "Dos personas son amigos si almenos uno de ellos ama a el otro."
+Incorpora esta regla a tu archivo `friends.pl` como aparece aquí. Debe de estar después de los hechos definidos: 
+
+```prolog
+% Rules
+sale(X,Y):- ama(X,Y), ama(Y,X).
+```
+
+::: callout-caution
+## Práctica: Parte 5
+
+En el archivo `friends.pl`.
+
+Ahora prueba definir una nueva regla: 
+
+"Dos personas son amigos si almenos uno de ellos ama a el otro."
+
+Recuerda hacerso siguiendo la sintaxis que hemos definido. Puedes ayudarte escribiéndola en Lógica de Primer Orden para después pasarlo a código como hemos hecho en el ejemplo. Cuando termines no olvides guardar. 
+
+:::
 
 
-#### El programa friends.pl
+
+### El programa friends.pl
 
 Cuando termines deberas de tener ya un programa completo de PROLOG definido en tu archivo `friends.pl`. El programa debería de quedar como sigue:
 
@@ -163,26 +230,17 @@ Es muy importante seguir el orden: primero los Hechos y segundo las Reglas. Esto
 
 **IMPORTANTE!** Guarda el archivo antes de cerrarlo. 
 
-###  Cargando el programa en PROLOG
-Una vez tienes tu programa de PROLOG terminado debemos de cargarlo en la base de conocimiento de PROLOG para que podamos hacerle preguntas al respecto. 
-
-Para esta parte es recomendable que, desde la consola, cambies de directorio a la carpeta que has creado en el apartado anterior donde está el archivo `friends.pl`. Recuerda que puedes usar el comando `cd().` para moverte en la terminal. 
-
-Una vez estes en la carpeta donde se encuentra tu programa basta con ejecutar el comando `['nombre_archivo.pl'].`En nuestro caso 
-
-```
-?- ['friends.pl'].
-```
-
-Una vez hecho esto PROLOG cargará en su memoria todos los hechos y reglas enunciados. Si más adelante cambiamos algo del código, bastará con volverlo a cargar. 
-
 ###  Preguntando a PROLOG
 
-Ahora que ya tienes cargada la base de conocimiento friends, puedes preguntar a PROLOG.
+Después de guardar el archivo, cárgalo de nuevo en PROLOG de igual forma que hiciste antes. Verás que Prolog analiza los cambios y los aplica a su base de conocimiento.  
+
+Ahora que ya tienes cargada la base de conocimiento friends, puedes preguntar a PROLOG usando la misma sintaxis y el responderá usando los hechos y reglas definidos. 
+
+::: callout-caution
+## Práctica: Parte 6
 
 Prueba la siguientes preguntas:
 
-* ¿Ama Mónica a Chandler?
 * ¿Ama Phoebe a Chandler?
 * ¿Sale Mónica con Chandler?
 * ¿Sale Chandler con Mónica?
@@ -190,11 +248,16 @@ Prueba la siguientes preguntas:
 * ¿Son Mónica y Chandler amigos?
 * ¿Son Gunter y Chandler amigos?
 
-¿Qué te devuelve en cada caso? Recuerda que debes de usar la sintaxis que has diseñado para Prolog. Por ejemplo, la primera pregunta sería ```ama(monica,chandler).```
+¿Qué te devuelve en cada caso? Recuerda que debes de usar la sintaxis que has diseñado para Prolog.
+
+:::
 
 Por otro lado puedes hacer preguntas más genéricas y PROLOG intentará deducir la respuesta a partir de las reglas y la base de conocimiento. Por ejemplo, ¿a quién ama Mónica? 
 
 Basta con escribir ```ama(monica,X).```, de esta forma PROLOG nos dirá que valor puede tomar X. 
+
+::: callout-caution
+## Práctica: Parte 7
 
 Intenta responder a las siguientes preguntas:
 
@@ -203,6 +266,8 @@ Intenta responder a las siguientes preguntas:
 * ¿De quién es amigo Joey?
 
 Ahora prueba a escribir ```salen(X,Y).``` o ```salen(X,X).```. ¿Qué pasa?
+
+:::
 
 ## Trazas y depuración en PROLOG
 
@@ -219,7 +284,28 @@ Escribe el siguiente comando en la terminal:
 
 Ahora se habrá activado la función de depuración y Prolog devolverá la traza seguida para determinar la respuesta. Una vez ejecutada la pregunta, sigue presionando enter cada vez para que Prolog devuelva una a uno a uno los pasos. Prueba las preguntas anteriores y analiza que traza devuelve. 
 
+::: callout-caution
+## Práctica: Parte 8
+
+Prueba a preguntar a Prolog las siguientes preguntas y entiende como funcionan las trazas que explican el proceso de inferencia. 
+
+* ¿Ama Mónica a Chandler?
+* ¿Sale Mónica con Chandler?
+* ¿Sale Rachel con Joey?
+* ¿A quién ama Mónica? 
+
+:::
+
 Para salir del modo depuración escibre el comando ```notrace.``` y luego ```nodebug.```, volverá la terminal al funcionamiento original. 
+
+::: callout-important
+## Inferencia
+
+Lo que acabamos de ver es la capacidad de Inferencia de Prolog. Prolog se basa en el conocimiento que le proporcionamos para "razonar" y tratar de responder a preguntas.
+
+Cuando usamos el modo de trazas podemos ver que pasos sigue el motor de inferencia de Prolog para obtener la respuesta. 
+
+:::
 
 ## Ejercicio Práctico
 
@@ -239,6 +325,7 @@ Crea el fichero restaurante.pl y escribe tu programa de PROLOG, después puedes 
 
 * ¿El rape es un primer plato?
 * ¿Existe el menu compuesto por ensalada, sopa y natillas?
+
 
 ## Anexos
 
