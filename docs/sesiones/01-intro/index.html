@@ -246,7 +246,26 @@ Instalación
 <li>Las rutas, para windows: <code>cd('C:/Users/carviagu/Documents/pract_prolog').</code> o para mac: <code>cd(/Users/carviagu/Documents/pract_prolog).</code>,me llevarán a la carpeta <code>pract_prolog</code> localizada en Documentos, pues es lo que le indico dentro de la función.</li>
 </ul>
 <p>Ten cuidado con las direcciones, si te fijas verás que las barras <code>/</code> pueden estar en una orientación distinta a la de otros sistemas operativos, por ejemplo en Windows son al revés y deberás de cambiarlas cuando se lo escribas a PROLOG.</p>
-<p>Intenta llegar al escritorio desde el directorio raiz usado el comando <code>cd().</code> <em>Nota:</em> Desde tu carpeta usuario (la que se abre por defecto cuando inicias PROLOG) verás que hay una carpeta llamada <code>Desktop</code> o <code>Escritorio</code> mediante la cual puedes llegar.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ejercicio Práctico 1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Vamos a repasar las últimas tres funciones que hemos aprendido para ello:</p>
+<ol type="1">
+<li><p>Consulta en que directorio te encuentras usando el comando <code>pwd</code></p></li>
+<li><p>Intenta llegar al escritorio desde el directorio raiz usado el comando <code>cd().</code> <em>Nota:</em> Desde tu carpeta usuario (la que se abre por defecto cuando inicias PROLOG) verás que hay una carpeta llamada <code>Desktop</code> o <code>Escritorio</code> mediante la cual puedes llegar.</p></li>
+<li><p>Una vez te encuentres en el escritorio verificalo usando <code>pwd</code> y consulta los ficheros/directorios que hay disponibles usando <code>ls</code>.</p></li>
+<li><p>Crea una carpeta llamada <code>prolog_labs</code> usando el siguiente comando <code>make_directory('prolog_labs').</code> Verifica que la has creado correctamente usando <code>ls</code></p></li>
+<li><p>Entra en la carpeta que has creado y verifica que estás dentro usando los comandos correspondientes.</p></li>
+</ol>
+</div>
+</div>
 </section>
 </section>
 <section id="primeros-pasos-con-prolog" class="level2">
@@ -391,6 +410,30 @@ Comparando sin evaluación
 B = 5.
 A == B.
 A == A.</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ejercicio Práctico 2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Dados los siguientes variables X con valor 9, Y con valor 4 e Z con valor 5.</p>
+<ol type="1">
+<li><p>Asigna a cada variable su valor correspondiente de tal forma que Prolog los memorize. <em>Nota:</em> Cuando hablamos de asignar nos referimos a unificar el valor en cada variable.</p></li>
+<li><p>Construye las comparaciones correspondientes para que Prolog responda true a las siguientes consultas:</p>
+<ul>
+<li>Y es igual a 4 (comparativa)</li>
+<li>Y es menor que X (comparativa)</li>
+<li>X es igual al resultado de Y + Z (comparativa)</li>
+</ul></li>
+<li><p>Si ahora introducimos una nueva variables J con valor <code>4 + 5</code>. Como sería la comparativa para que Prolog responda <code>true</code> al compararlo con Y + Z.</p></li>
+<li><p>Es posible conseguir compara el la estructura J con la estructura Y + Z y que Prolog responda <code>true</code>. Justifica la respuesta.</p></li>
+</ol>
 </div>
 </div>
 </section>

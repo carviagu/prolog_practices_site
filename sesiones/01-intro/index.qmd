@@ -117,7 +117,24 @@ Para poder navegar y movernos entre carpetas de nuestro ordenador podemos usar e
 
 Ten cuidado con las direcciones, si te fijas verás que las barras `/` pueden estar en una orientación distinta a la de otros sistemas operativos, por ejemplo en Windows son al revés y deberás de cambiarlas cuando se lo escribas a PROLOG.
 
-Intenta llegar al escritorio desde el directorio raiz usado el comando `cd().` *Nota:* Desde tu carpeta usuario (la que se abre por defecto cuando inicias PROLOG) verás que hay una carpeta llamada `Desktop` o `Escritorio` mediante la cual puedes llegar. 
+::: callout-caution
+## Ejercicio Práctico 1
+
+Vamos a repasar las últimas tres funciones que hemos aprendido para ello:
+
+1. Consulta en que directorio te encuentras usando el comando `pwd`
+
+2. Intenta llegar al escritorio desde el directorio raiz usado el comando `cd().` *Nota:* Desde tu carpeta usuario (la que se abre por defecto cuando inicias PROLOG) verás que hay una carpeta llamada `Desktop` o `Escritorio` mediante la cual puedes llegar. 
+
+3. Una vez te encuentres en el escritorio verificalo usando `pwd` y consulta los ficheros/directorios que hay disponibles usando `ls`. 
+
+4. Crea una carpeta llamada `prolog_labs` usando el siguiente comando `make_directory('prolog_labs').` Verifica que la has creado correctamente usando `ls`
+
+5. Entra en la carpeta que has creado y verifica que estás dentro usando los comandos correspondientes. 
+
+:::
+
+
 
 ## Primeros pasos con PROLOG
 
@@ -234,6 +251,25 @@ B = 5.
 A == B.
 A == A.
 ```
+:::
+
+::: callout-caution
+## Ejercicio Práctico 2
+
+Dados los siguientes variables X con valor 9, Y con valor 4 e Z con valor 5.
+
+1. Asigna a cada variable su valor correspondiente de tal forma que Prolog los memorize. *Nota:* Cuando hablamos de asignar nos referimos a unificar el valor en cada variable. 
+
+2. Construye las comparaciones correspondientes para que Prolog responda true a las siguientes consultas:
+    * Y es igual a 4 (comparativa)
+    * Y es menor que X (comparativa)
+    * X es igual al resultado de Y + Z (comparativa)
+
+3. Si ahora introducimos una nueva variables J con valor `4 + 5`. Como sería la comparativa para que Prolog responda `true` al compararlo con Y + Z.
+
+4. Es posible conseguir compara el la estructura J con la estructura Y + Z y que Prolog responda `true`. Justifica la respuesta. 
+
+
 :::
 
 ### Listas
