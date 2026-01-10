@@ -298,7 +298,7 @@ Prueba a preguntar a Prolog las siguientes preguntas y entiende como funcionan l
 
 Para salir del modo depuración escibre el comando ```notrace.``` y luego ```nodebug.```, volverá la terminal al funcionamiento original. 
 
-::: callout-important
+::: callout-tip
 ## Inferencia
 
 Lo que acabamos de ver es la capacidad de Inferencia de Prolog. Prolog se basa en el conocimiento que le proporcionamos para "razonar" y tratar de responder a preguntas.
