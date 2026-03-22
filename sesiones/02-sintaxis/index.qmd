@@ -312,19 +312,20 @@ Cuando usamos el modo de trazas podemos ver que pasos sigue el motor de inferenc
 Crea un programa de PROLOG que sea capaz de responder a preguntas sobre el menú de un restaurante:
 
 * Un plato es un segundo si es carne o pescado. 
-* Una combinación de 3 platos es un menú, si está formada por un primero, un segundo y un postre. 
+* Una combinación de 3 platos es un menú, si está formada por un entrante, un segundo y un postre. 
 
 Los hechos que conforman este programa son:
 
-* La ensalada y la sopa son primeros. 
+* La ensalada y la sopa son entrantes 
 * El pollo es un plato de carne. 
-* El rape y la lubina es un plato de rape. 
+* El rape y la lubina es un plato de pescado. 
 * Las natillas y el flan son postres. 
 
 Crea el fichero restaurante.pl y escribe tu programa de PROLOG, después puedes probarlo preguntando:
 
 * ¿El rape es un primer plato?
 * ¿Existe el menu compuesto por ensalada, sopa y natillas?
+* ¿Cuáles son los posibles menus que oferta el restaurante? ¿Cuántos hay?
 
 
 ## Anexos
