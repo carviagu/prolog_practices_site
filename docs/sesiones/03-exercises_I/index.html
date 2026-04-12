@@ -136,6 +136,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#ejercicio-06" id="toc-ejercicio-06" class="nav-link" data-scroll-target="#ejercicio-06">Ejercicio 06</a></li>
   <li><a href="#ejercicio-07" id="toc-ejercicio-07" class="nav-link" data-scroll-target="#ejercicio-07">Ejercicio 07</a></li>
   <li><a href="#ejercicio-08" id="toc-ejercicio-08" class="nav-link" data-scroll-target="#ejercicio-08">Ejercicio 08</a></li>
+  <li><a href="#ejercicio-09" id="toc-ejercicio-09" class="nav-link" data-scroll-target="#ejercicio-09">Ejercicio 09</a></li>
+  <li><a href="#ejercicio-10" id="toc-ejercicio-10" class="nav-link" data-scroll-target="#ejercicio-10">Ejercicio 10</a></li>
+  <li><a href="#ejercicio-11" id="toc-ejercicio-11" class="nav-link" data-scroll-target="#ejercicio-11">Ejercicio 11</a></li>
   </ul>
 </nav>
     </div>
@@ -323,6 +326,66 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Pepe bebe cualquier cosa que beba Alfredo.</li>
 <li>Elena bebe cualquier cosa que beban Sonia o Felipe.</li>
 </ol>
+</section>
+<section id="ejercicio-09" class="level2">
+<h2 class="anchored" data-anchor-id="ejercicio-09">Ejercicio 09</h2>
+<p>Escribe un programa que contenga la siguiente información:</p>
+<ol type="1">
+<li>Utilizar el predicado <strong>encargado_de_tarea(trabajador, tarea)</strong>:</li>
+</ol>
+<ul>
+<li><em>Miguel está encargado de las tareas de admisión, control y vigilancia.</em></li>
+<li><em>Ricardo está encargado de las tareas de planificación y asesoramiento.</em></li>
+<li><em>Alicia está encargada de la dirección y control.</em></li>
+</ul>
+<ol start="2" type="1">
+<li>Define las siguientes reglas que permitan comprobar ciertos hechos:</li>
+</ol>
+<ul>
+<li><em>Crea la regla con el predicado <strong>encargado(Tarea)</strong>, que nos permita verificar si una tarea ha sido encargada a alguien.</em></li>
+<li><em>Crea la regla con el predicado <strong>comparten_tarea(Persona1,Persona2)</strong> que nos permita verificar si dos personas comparten alguna tarea.</em></li>
+</ul>
+</section>
+<section id="ejercicio-10" class="level2">
+<h2 class="anchored" data-anchor-id="ejercicio-10">Ejercicio 10</h2>
+<p>Dada la siguiente base de hechos:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode prolog code-with-copy"><code class="sourceCode prolog"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>producto(laptop_hp<span class="kw">,</span> portatil)<span class="kw">.</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>producto(mac_air<span class="kw">,</span> portatil)<span class="kw">.</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>producto(pc_gaming<span class="kw">,</span> sobremesa)<span class="kw">.</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>producto(mac<span class="kw">,</span> sobremesa)<span class="kw">.</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>producto(teclado_logitech<span class="kw">,</span> periferico)<span class="kw">.</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>producto(raton_razer<span class="kw">,</span> periferico)<span class="kw">.</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>producto(monitor_samsung<span class="kw">,</span> monitor)<span class="kw">.</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>producto(monitor_hp<span class="kw">,</span> monitor)<span class="kw">.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Crea una regla que se llame <strong>oferta(Producto1,Producto2)</strong> que indique si hay una oferta comprando esos productos conjuntamente. Las actuales ofertas que hay son:</p>
+<ul>
+<li>Un ordenador de sobremesa y un periferico.</li>
+<li>Un ordenador de sobremesa y un monitor.</li>
+<li>Un portatil y el periferico ratón razer.</li>
+</ul>
+</section>
+<section id="ejercicio-11" class="level2">
+<h2 class="anchored" data-anchor-id="ejercicio-11">Ejercicio 11</h2>
+<p>Crea estos programas que permitan obtener las operación aritmética indicadas:</p>
+<ol type="1">
+<li>Mínimo de dos números.</li>
+<li>Suma de dos números.</li>
+<li>Verificar que el producto de dos números es igual a un tercer número.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Pista
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Recuerda que necesitamos declarar tanto los valores de entrada como la salida en Prolog, es decir, en este caso si queremos Prolog nos devuelva el valor mínimo es necesario que definamos la variable objetivo en la llamada.</p>
+<p>Ejemplo: ?-minimo(4,5,X) Respuesta: X = 4</p>
+</div>
+</div>
 
 
 </section>

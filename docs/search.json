@@ -446,5 +446,26 @@
     "title": "Ejercicios PROLOG II",
     "section": "Ejercicio: Metro",
     "text": "Ejercicio: Metro\nDado el siguiente mapa de metro:\n\n\n\n\n\nQueremos definir en prolog el conocimieto de la estructura de estaciones y líneas. Necesitarás definir:\n\nExisten tres líneas de metro: azul, roja y naranja.\nLa línea azul se compone de las paradas: Cuatro Caminos, Iglesia, Bilbao, Gran Vía, Sol y Atocha.\nLa línea roja se compone de las paradas: Cuatro Caminos, Canal, Quevedo, Gran Vía, Príncipe de Vergara, Goya.\nLa línea naranja se compone de las paradas: Canal, Alonso Cano, Cartagena\n\nParte A Define, usando la anterior base de hechos, las reglas necesarias para poder responder a las siguientes relaciones:\n\nUna línea tiene transbordo a otra si tienen al menos una parada en común.\nSe puede llegar de una parada a otra si están en la misma línea.\nSe puede llegar de una parada a otra, aunque esté en otra línea, si existe un transbordo entre esas líneas.\n\nParte B Si añadimos los siguientes hechos a la base de conocimiento:\nconecta_bus(cuatro_caminos).\nconecta_bus(canal).\nconecta_bus(atocha).\nAñade una nueva regla que nos indique que una parada es un intercambiador si en ella paran dos o más líneas distintas y tiene conexión con bus."
+  },
+  {
+    "objectID": "sesiones/03-exercises_I/index.html#ejercicio-09",
+    "href": "sesiones/03-exercises_I/index.html#ejercicio-09",
+    "title": "Ejercicios PROLOG I",
+    "section": "Ejercicio 09",
+    "text": "Ejercicio 09\nEscribe un programa que contenga la siguiente información:\n\nUtilizar el predicado encargado_de_tarea(trabajador, tarea):\n\n\nMiguel está encargado de las tareas de admisión, control y vigilancia.\nRicardo está encargado de las tareas de planificación y asesoramiento.\nAlicia está encargada de la dirección y control.\n\n\nDefine las siguientes reglas que permitan comprobar ciertos hechos:\n\n\nCrea la regla con el predicado encargado(Tarea), que nos permita verificar si una tarea ha sido encargada a alguien.\nCrea la regla con el predicado comparten_tarea(Persona1,Persona2) que nos permita verificar si dos personas comparten alguna tarea."
+  },
+  {
+    "objectID": "sesiones/03-exercises_I/index.html#ejercicio-10",
+    "href": "sesiones/03-exercises_I/index.html#ejercicio-10",
+    "title": "Ejercicios PROLOG I",
+    "section": "Ejercicio 10",
+    "text": "Ejercicio 10\nDada la siguiente base de hechos:\nproducto(laptop_hp, portatil).\nproducto(mac_air, portatil).\nproducto(pc_gaming, sobremesa).\nproducto(mac, sobremesa).\nproducto(teclado_logitech, periferico).\nproducto(raton_razer, periferico).\nproducto(monitor_samsung, monitor).\nproducto(monitor_hp, monitor).\nCrea una regla que se llame oferta(Producto1,Producto2) que indique si hay una oferta comprando esos productos conjuntamente. Las actuales ofertas que hay son:\n\nUn ordenador de sobremesa y un periferico.\nUn ordenador de sobremesa y un monitor.\nUn portatil y el periferico ratón razer."
+  },
+  {
+    "objectID": "sesiones/03-exercises_I/index.html#ejercicio-11",
+    "href": "sesiones/03-exercises_I/index.html#ejercicio-11",
+    "title": "Ejercicios PROLOG I",
+    "section": "Ejercicio 11",
+    "text": "Ejercicio 11\nCrea estos programas que permitan obtener las operación aritmética indicadas:\n\nMínimo de dos números.\nSuma de dos números.\nVerificar que el producto de dos números es igual a un tercer número.\n\n\n\n\n\n\n\nPista\n\n\n\nRecuerda que necesitamos declarar tanto los valores de entrada como la salida en Prolog, es decir, en este caso si queremos Prolog nos devuelva el valor mínimo es necesario que definamos la variable objetivo en la llamada.\nEjemplo: ?-minimo(4,5,X) Respuesta: X = 4"
   }
 ]
