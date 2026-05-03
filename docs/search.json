@@ -263,7 +263,7 @@
     "href": "sesiones/02-sintaxis/index.html#ejercicio-práctico",
     "title": "Sintaxis de PROLOG: Hechos y Reglas",
     "section": "Ejercicio Práctico",
-    "text": "Ejercicio Práctico\nCrea un programa de PROLOG que sea capaz de responder a preguntas sobre el menú de un restaurante:\n\nUn plato es un segundo si es carne o pescado.\nUna combinación de 3 platos es un menú, si está formada por un primero, un segundo y un postre.\n\nLos hechos que conforman este programa son:\n\nLa ensalada y la sopa son primeros.\nEl pollo es un plato de carne.\nEl rape y la lubina es un plato de rape.\nLas natillas y el flan son postres.\n\nCrea el fichero restaurante.pl y escribe tu programa de PROLOG, después puedes probarlo preguntando:\n\n¿El rape es un primer plato?\n¿Existe el menu compuesto por ensalada, sopa y natillas?"
+    "text": "Ejercicio Práctico\nCrea un programa de PROLOG que sea capaz de responder a preguntas sobre el menú de un restaurante:\n\nUn plato es un segundo si es carne o pescado.\nUna combinación de 3 platos es un menú, si está formada por un entrante, un segundo y un postre.\n\nLos hechos que conforman este programa son:\n\nLa ensalada y la sopa son entrantes\nEl pollo es un plato de carne.\nEl rape y la lubina es un plato de pescado.\nLas natillas y el flan son postres.\n\nCrea el fichero restaurante.pl y escribe tu programa de PROLOG, después puedes probarlo preguntando:\n\n¿El rape es un primer plato?\n¿Existe el menu compuesto por ensalada, sopa y natillas?\n¿Cuáles son los posibles menus que oferta el restaurante? ¿Cuántos hay?"
   },
   {
     "objectID": "sesiones/03-exercises_I/index.html",
